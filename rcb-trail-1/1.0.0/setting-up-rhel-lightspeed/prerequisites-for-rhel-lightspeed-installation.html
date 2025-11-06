@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Prerequisites for RHEL Lightspeed installation :: RHEL Lightspeed Course Outline</title>
+    <link rel="prev" href="setting-up-rhel-lightspeed.html">
+    <link rel="next" href="step-by-step-guide-for-rhel-lightspeed-setup.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">RHEL Lightspeed Course Outline</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-trail-1" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">RHEL Lightspeed Course Outline</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/business-use-cases-for-rhel-lightspeed.html">Business Use Cases for RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/understanding-the-benefits-of-rhel-lightspeed-for-businesses.html">Understanding the benefits of RHEL Lightspeed for businesses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/exploring-how-rhel-lightspeed-enhances-security-and-compliance.html">Exploring how RHEL Lightspeed enhances security and compliance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/identifying-key-business-scenarios-for-rhel-lightspeed-adoption.html">Identifying key business scenarios for RHEL Lightspeed adoption</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/evaluating-the-transition-from-traditional-rhel-to-rhel-lightspeed.html">Evaluating the transition from traditional RHEL to RHEL Lightspeed</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/assessing-the-impact-on-existing-workflows-and-systems.html">Assessing the impact on existing workflows and systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/strategies-for-smooth-integration-and-migration.html">Strategies for smooth integration and migration</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="prerequisites-for-rhel-lightspeed-installation.html">Prerequisites for RHEL Lightspeed installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="step-by-step-guide-for-rhel-lightspeed-setup.html">Step-by-step guide for RHEL Lightspeed setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration-options-and-best-practices.html">Configuration options and best practices</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../sample-deployment/sample-deployment.html">Sample Deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sample-deployment/walkthrough-of-a-typical-rhel-lightspeed-deployment.html">Walkthrough of a typical RHEL Lightspeed deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sample-deployment/hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sample-deployment/post-deployment-verification-and-troubleshooting.html">Post-deployment verification and troubleshooting</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">RHEL Lightspeed Course Outline</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">RHEL Lightspeed Course Outline</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">RHEL Lightspeed Course Outline</a></li>
+    <li><a href="setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a></li>
+    <li><a href="prerequisites-for-rhel-lightspeed-installation.html">Prerequisites for RHEL Lightspeed installation</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Prerequisites for RHEL Lightspeed installation</h1>
+<h1 id="_prerequisites_for_rhel_lightspeed_installation" class="sect0"><a class="anchor" href="#_prerequisites_for_rhel_lightspeed_installation"></a>Prerequisites for RHEL Lightspeed Installation</h1>
+<div class="paragraph">
+<p>Understanding and fulfilling the prerequisites is crucial for a smooth RHEL Lightspeed installation. This section details the necessary system, network, subscription, and software requirements, along with recommended best practices, to ensure your environment is fully prepared.</p>
+</div>
+<div class="sect1">
+<h2 id="_system_requirements"><a class="anchor" href="#_system_requirements"></a>System Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>RHEL Lightspeed, like any advanced service, relies on a robust underlying operating system. Meeting these specifications ensures optimal performance and stability.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Operating System:</strong> Red Hat Enterprise Linux (RHEL) 8.x or RHEL 9.x.</p>
+</li>
+<li>
+<p>It is highly recommended to use the latest minor version of RHEL within your chosen major release for improved stability, security patches, and access to the newest features.</p>
+</li>
+<li>
+<p>Ensure your RHEL host is fully updated to prevent compatibility issues.</p>
+</li>
+<li>
+<p><strong>CPU:</strong> Minimum of 2 vCPU.</p>
+</li>
+<li>
+<p>For production environments or heavier workloads, consider 4 vCPU or more to handle concurrent requests and processing.</p>
+</li>
+<li>
+<p><strong>RAM:</strong> Minimum of 4 GB RAM.</p>
+</li>
+<li>
+<p>Production deployments may benefit from 8 GB RAM or more, especially if other services are co-located or if you anticipate extensive use.</p>
+</li>
+<li>
+<p><strong>Disk Space:</strong> Minimum of 20 GB free disk space.</p>
+</li>
+<li>
+<p>This space is required for installation files, container images, temporary data, and system logs.</p>
+</li>
+<li>
+<p><strong>Recommendation:</strong> For production use, consider allocating a separate logical volume or partition for RHEL Lightspeed data to facilitate easier management, backups, and to prevent root partition exhaustion.</p>
+</li>
+<li>
+<p><strong>Architecture:</strong> x86_64 compatible system.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_hands_on_activity_verifying_system_specifications"><a class="anchor" href="#_hands_on_activity_verifying_system_specifications"></a>Hands-on Activity: Verifying System Specifications</h3>
+<div class="paragraph">
+<p>Before proceeding with the installation, let&#8217;s verify that your RHEL system meets the fundamental requirements.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to your RHEL host using an SSH client or directly from the console.</p>
+</li>
+<li>
+<p>Check the RHEL version to confirm it&#8217;s RHEL 8.x or 9.x.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">cat /etc/redhat-release
+sudo dnf update --refresh</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>sudo dnf update --refresh</code> command ensures your system&#8217;s package metadata is up-to-date and prompts you to apply any pending system updates.</p>
+</div>
+</li>
+<li>
+<p>Verify the number of CPU cores available to the system.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">nproc</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Check the total and available RAM.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">free -h</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Confirm the amount of free disk space on the root partition or the designated installation partition.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">df -h /</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_subscription_and_registration"><a class="anchor" href="#_subscription_and_registration"></a>Subscription and Registration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>RHEL Lightspeed integrates with Red Hat&#8217;s ecosystem, requiring proper subscription management for access to software repositories and official support.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Active RHEL Subscription:</strong> Your RHEL host must have a valid and active Red Hat Enterprise Linux subscription.</p>
+</li>
+<li>
+<p><strong>System Registration:</strong> The RHEL host needs to be registered with Red Hat Subscription Management (RHSM) and attached to the appropriate subscription. This step is critical for enabling access to Red Hat&#8217;s content delivery network (CDN) for necessary package installations and updates.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_hands_on_activity_verifying_subscription_status"><a class="anchor" href="#_hands_on_activity_verifying_subscription_status"></a>Hands-on Activity: Verifying Subscription Status</h3>
+<div class="paragraph">
+<p>Ensuring your system is correctly subscribed and registered is a common troubleshooting point.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Check your system&#8217;s registration status using <code>subscription-manager</code>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo subscription-manager status</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Expected Output:</strong> Under the <code>Status</code> section, you should see <code>Current</code>. If it shows <code>Invalid</code>, <code>Expired</code>, or <code>Unknown</code>, your system is not properly subscribed.</p>
+</div>
+</li>
+<li>
+<p>List the subscriptions currently consumed by your system.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo subscription-manager list --consumed</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Troubleshooting:</strong>
+<strong> If your system is not registered, use <code>sudo subscription-manager register --username=&lt;your_redhat_username&gt; --password=&lt;your_redhat_password&gt; --auto-attach</code>.
+</strong> If registered but not attached to a valid subscription, try <code>sudo subscription-manager attach --auto</code> to automatically attach the best available subscription, or specify a pool ID with <code>sudo subscription-manager attach --pool=&lt;pool_id&gt;</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_network_requirements"><a class="anchor" href="#_network_requirements"></a>Network Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Reliable network connectivity is fundamental for RHEL Lightspeed to fetch components during installation, communicate with Red Hat services, and potentially integrate with other enterprise systems.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Internet Access:</strong> Outbound HTTPS (port 443) access is required for communication with Red Hat&#8217;s cloud services and content delivery network. Specifically, ensure connectivity to:</p>
+</li>
+<li>
+<p><code>console.redhat.com</code>: For RHEL Lightspeed services, integration with Red Hat Hybrid Cloud Console, and API access.</p>
+</li>
+<li>
+<p><code>cdn.redhat.com</code>: For RHEL package repositories, updates, and container image pulls.</p>
+</li>
+<li>
+<p><code>access.redhat.com</code>: For documentation, knowledge base articles, and support resources.</p>
+</li>
+<li>
+<p>Additional Red Hat API endpoints specific to any integrated services (e.g., Red Hat Insights, Automation Hub).</p>
+</li>
+<li>
+<p><strong>DNS Resolution:</strong> The RHEL host must be able to resolve external hostnames to IP addresses. Incorrect DNS settings can lead to installation failures or service outages.</p>
+</li>
+<li>
+<p><strong>Proxy Configuration (Optional):</strong> If your environment uses an HTTP or HTTPS proxy server for internet access, ensure it is properly configured system-wide for <code>dnf</code> and for any container runtime environments (e.g., Podman) that RHEL Lightspeed might use.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_hands_on_activity_testing_network_connectivity"><a class="anchor" href="#_hands_on_activity_testing_network_connectivity"></a>Hands-on Activity: Testing Network Connectivity</h3>
+<div class="paragraph">
+<p>Verify that your RHEL host can communicate with essential Red Hat services over the required ports.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Test outbound HTTPS connectivity to key Red Hat domains.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">curl -v https://console.redhat.com
+curl -v https://cdn.redhat.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Expected Output:</strong> A successful connection will show an HTTP 200 OK status or a redirect, indicating that the server responded. If you encounter connection errors (e.g., <code>Failed to connect</code>, <code>Connection refused</code>, <code>Operation timed out</code>), investigate your firewall rules, proxy settings, or network routing.</p>
+</div>
+</li>
+<li>
+<p>Verify DNS resolution capabilities.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dig console.redhat.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Expected Output:</strong> Look for an <code>ANSWER SECTION</code> containing the IP address(es) for <code>console.redhat.com</code>. If no answer section appears or if you see a <code>SERVFAIL</code> status, your DNS configuration needs adjustment.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_and_permissions"><a class="anchor" href="#_user_and_permissions"></a>User and Permissions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Root or Sudo Privileges:</strong> The installation process, initial configuration, and potentially ongoing management tasks for RHEL Lightspeed typically require elevated privileges. Ensure you have access to the <code>root</code> user or a user account with <code>sudo</code> privileges.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_software_requirements"><a class="anchor" href="#_software_requirements"></a>Software Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Modern Red Hat services increasingly leverage containerization and automation. RHEL Lightspeed is designed to integrate seamlessly with these technologies.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Container Runtime:</strong> A container runtime environment is essential for running RHEL Lightspeed components.</p>
+</li>
+<li>
+<p><code>podman</code>: Red Hat&#8217;s daemonless container engine, recommended for RHEL environments.</p>
+</li>
+<li>
+<p><code>docker</code>: While Podman is preferred, Docker is also often supported.</p>
+</li>
+<li>
+<p><strong>Note:</strong> Red Hat strongly recommends using <code>podman</code> on RHEL for its tighter integration, security features, and daemonless architecture.</p>
+</li>
+<li>
+<p><strong><code>ansible-core</code> (Optional but Recommended):</strong> While not a direct dependency for the <strong>service itself</strong> to run, if you plan to automate the setup, configuration, or integrate RHEL Lightspeed with Red Hat Ansible Automation Platform, you will need <code>ansible-core</code> (or a full Ansible installation) on your control host.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_hands_on_activity_installing_and_verifying_software_dependencies"><a class="anchor" href="#_hands_on_activity_installing_and_verifying_software_dependencies"></a>Hands-on Activity: Installing and Verifying Software Dependencies</h3>
+<div class="paragraph">
+<p>Ensure the necessary software components are installed and functional on your RHEL host.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install <code>podman</code> if it&#8217;s not already present.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo dnf install -y podman</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verify the <code>podman</code> installation and check its basic information.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">podman info</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>(Optional) Install <code>ansible-core</code> if you intend to manage or integrate RHEL Lightspeed using Ansible.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo dnf install -y ansible-core</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verify the <code>ansible-core</code> installation.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible --version</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_best_practices_and_considerations"><a class="anchor" href="#_best_practices_and_considerations"></a>Best Practices and Considerations</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Dedicated System:</strong> For production environments, consider dedicating a RHEL host or virtual machine specifically for RHEL Lightspeed. This avoids resource contention with other applications and simplifies troubleshooting.</p>
+</li>
+<li>
+<p><strong>Backup Strategy:</strong> Develop and implement a robust backup strategy for your RHEL Lightspeed configuration, data, and the underlying RHEL system.</p>
+</li>
+<li>
+<p><strong>Security Hardening:</strong> Ensure your RHEL host adheres to your organization&#8217;s security policies. This includes keeping SELinux in <code>enforcing</code> mode, configuring <code>firewalld</code> appropriately, and applying regular security updates.</p>
+</li>
+<li>
+<p><strong>Documentation:</strong> Maintain comprehensive documentation of your RHEL Lightspeed deployment, including configuration choices, network settings, and any customizations. This is invaluable for maintenance, upgrades, and troubleshooting.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By diligently addressing these prerequisites, you lay a solid and secure foundation for a successful RHEL Lightspeed deployment and operation.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a></span>
+  <span class="next"><a href="step-by-step-guide-for-rhel-lightspeed-setup.html">Step-by-step guide for RHEL Lightspeed setup</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

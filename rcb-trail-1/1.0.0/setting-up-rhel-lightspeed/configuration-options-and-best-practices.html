@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Configuration options and best practices :: RHEL Lightspeed Course Outline</title>
+    <link rel="prev" href="step-by-step-guide-for-rhel-lightspeed-setup.html">
+    <link rel="next" href="../sample-deployment/sample-deployment.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">RHEL Lightspeed Course Outline</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-trail-1" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">RHEL Lightspeed Course Outline</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/business-use-cases-for-rhel-lightspeed.html">Business Use Cases for RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/understanding-the-benefits-of-rhel-lightspeed-for-businesses.html">Understanding the benefits of RHEL Lightspeed for businesses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/exploring-how-rhel-lightspeed-enhances-security-and-compliance.html">Exploring how RHEL Lightspeed enhances security and compliance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/identifying-key-business-scenarios-for-rhel-lightspeed-adoption.html">Identifying key business scenarios for RHEL Lightspeed adoption</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/evaluating-the-transition-from-traditional-rhel-to-rhel-lightspeed.html">Evaluating the transition from traditional RHEL to RHEL Lightspeed</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/assessing-the-impact-on-existing-workflows-and-systems.html">Assessing the impact on existing workflows and systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/strategies-for-smooth-integration-and-migration.html">Strategies for smooth integration and migration</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="prerequisites-for-rhel-lightspeed-installation.html">Prerequisites for RHEL Lightspeed installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="step-by-step-guide-for-rhel-lightspeed-setup.html">Step-by-step guide for RHEL Lightspeed setup</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="configuration-options-and-best-practices.html">Configuration options and best practices</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../sample-deployment/sample-deployment.html">Sample Deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sample-deployment/walkthrough-of-a-typical-rhel-lightspeed-deployment.html">Walkthrough of a typical RHEL Lightspeed deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sample-deployment/hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sample-deployment/post-deployment-verification-and-troubleshooting.html">Post-deployment verification and troubleshooting</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">RHEL Lightspeed Course Outline</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">RHEL Lightspeed Course Outline</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">RHEL Lightspeed Course Outline</a></li>
+    <li><a href="setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a></li>
+    <li><a href="configuration-options-and-best-practices.html">Configuration options and best practices</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Configuration options and best practices</h1>
+<h1 id="_configuration_options_and_best_practices" class="sect0"><a class="anchor" href="#_configuration_options_and_best_practices"></a>Configuration Options and Best Practices for RHEL Lightspeed</h1>
+<div class="paragraph">
+<p>This section provides a comprehensive overview of the configuration options available for RHEL Lightspeed, enabling you to tailor its behavior to your specific operational needs, security policies, and existing infrastructure. We will also explore essential best practices to ensure a robust, secure, and efficient deployment that maximizes the value derived from Lightspeed&#8217;s AI-driven insights.</p>
+</div>
+<div class="sect1">
+<h2 id="_understanding_rhel_lightspeed_configuration_options"><a class="anchor" href="#_understanding_rhel_lightspeed_configuration_options"></a>Understanding RHEL Lightspeed Configuration Options</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>RHEL Lightspeed, primarily integrated through the Red Hat Hybrid Cloud Console, offers a flexible set of configuration options to manage how it interacts with your environment, collects necessary data, and delivers actionable insights. Understanding these options is crucial for optimizing its utility and aligning it with your organizational goals.</p>
+</div>
+<div class="sect2">
+<h3 id="_data_collection_and_scope_configuration"><a class="anchor" href="#_data_collection_and_scope_configuration"></a>Data Collection and Scope Configuration</h3>
+<div class="paragraph">
+<p>The foundation of RHEL Lightspeed&#8217;s capabilities lies in the data it collects from your RHEL instances. Configuration here dictates <strong>what</strong> data is gathered and <strong>which</strong> systems are within Lightspeed&#8217;s analytical scope.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>System Registration and Insights Client</strong>:</p>
+</li>
+<li>
+<p><strong>Mechanism</strong>: For RHEL Lightspeed to analyze your systems, they must be registered with Red Hat Subscription Management and have the <code>insights-client</code> package installed and configured. The <code>insights-client</code> periodically collects operational data (e.g., system configuration, installed packages, logs) and uploads it to Red Hat Insights, which then feeds into Lightspeed.</p>
+</li>
+<li>
+<p><strong>Configuration</strong>:</p>
+</li>
+<li>
+<p><code>subscription-manager register --username &lt;USER&gt; --password &lt;PASSWORD&gt; --auto-attach</code></p>
+</li>
+<li>
+<p><code>dnf install insights-client</code></p>
+</li>
+<li>
+<p><code>insights-client --register</code></p>
+</li>
+<li>
+<p><strong>Proxy Settings</strong>: If your environment uses a proxy server for outbound internet access, the <code>insights-client</code> must be configured to use it. This is typically done in <code>/etc/insights-client/insights-client.conf</code> by setting <code>proxy</code> and <code>no_proxy</code> directives.</p>
+</li>
+<li>
+<p><strong>Data Minimization</strong>: While Lightspeed needs data to provide insights, you might configure the <code>insights-client</code> to exclude certain sensitive files or directories if absolutely necessary, although this can impact the quality of recommendations.</p>
+</li>
+<li>
+<p><strong>Lightspeed Scope within Hybrid Cloud Console</strong>:</p>
+</li>
+<li>
+<p><strong>Mechanism</strong>: Within the Red Hat Hybrid Cloud Console, you can define which groups of systems Lightspeed actively monitors or provides recommendations for. This allows for a phased rollout or focusing Lightspeed&#8217;s attention on critical environments first.</p>
+</li>
+<li>
+<p><strong>Configuration</strong>: While Lightspeed generally applies to all systems reporting to Insights, the console&#8217;s filtering and grouping capabilities (e.g., custom tags, system groups) can effectively narrow down the scope of systems you are actively managing with Lightspeed&#8217;s suggestions.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integration_with_existing_tools"><a class="anchor" href="#_integration_with_existing_tools"></a>Integration with Existing Tools</h3>
+<div class="paragraph">
+<p>RHEL Lightspeed is designed to enhance, not replace, your existing IT operations tools. Its integration capabilities are key to a seamless workflow.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Ansible Automation Platform Integration</strong>:</p>
+</li>
+<li>
+<p><strong>Mechanism</strong>: A core feature of Lightspeed is its ability to generate contextually relevant Ansible Playbooks based on identified issues or desired state changes. These playbooks can then be directly integrated into your Ansible Automation Platform (AAP) workflows.</p>
+</li>
+<li>
+<p><strong>Configuration</strong>:</p>
+</li>
+<li>
+<p><strong>Credential Setup</strong>: Ensure your AAP instance has appropriate credentials to connect to your RHEL systems.</p>
+</li>
+<li>
+<p><strong>Execution Environments</strong>: Configure suitable execution environments within AAP that contain the necessary modules for Lightspeed-generated playbooks.</p>
+</li>
+<li>
+<p><strong>Workflow Integration</strong>: Define automation workflows within AAP that can consume and execute Lightspeed-generated playbooks, potentially with manual review steps.</p>
+</li>
+<li>
+<p><strong>Red Hat Satellite Integration</strong>:</p>
+</li>
+<li>
+<p><strong>Mechanism</strong>: For organizations using Red Hat Satellite for RHEL lifecycle management, Lightspeed can complement Satellite&#8217;s capabilities by providing AI-driven insights for systems managed by Satellite.</p>
+</li>
+<li>
+<p><strong>Configuration</strong>: Ensure that Satellite-managed hosts are correctly registered with Red Hat Insights. Satellite can act as a proxy for Insights data uploads, simplifying connectivity in air-gapped or restricted environments.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_user_access_and_permissions_role_based_access_control_rbac"><a class="anchor" href="#_user_access_and_permissions_role_based_access_control_rbac"></a>User Access and Permissions (Role-Based Access Control - RBAC)</h3>
+<div class="paragraph">
+<p>Controlling who can access RHEL Lightspeed, view recommendations, and interact with its features is paramount for security and operational integrity.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Mechanism</strong>: Red Hat Hybrid Cloud Console utilizes a robust RBAC system that allows administrators to define granular permissions for different user roles.</p>
+</li>
+<li>
+<p><strong>Configuration</strong>:</p>
+</li>
+<li>
+<p><strong>User Roles</strong>: Assign specific roles (e.g., "Viewer," "Administrator," "Playbook Editor") to users or groups within the Hybrid Cloud Console.</p>
+</li>
+<li>
+<p><strong>Resource Permissions</strong>: Configure permissions to control access to specific functionalities like viewing Lightspeed recommendations, generating Ansible playbooks, or triggering automation.</p>
+</li>
+<li>
+<p><strong>SSO Integration</strong>: Integrate with your existing Identity Provider (IdP) for Single Sign-On (SSO) to centralize user management.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reporting_and_notifications"><a class="anchor" href="#_reporting_and_notifications"></a>Reporting and Notifications</h3>
+<div class="paragraph">
+<p>Configuring how RHEL Lightspeed communicates insights and updates ensures that relevant teams are informed promptly.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Mechanism</strong>: The Hybrid Cloud Console provides options for customizing notification preferences and generating reports.</p>
+</li>
+<li>
+<p><strong>Configuration</strong>:</p>
+</li>
+<li>
+<p><strong>Email Notifications</strong>: Set up email alerts for critical recommendations, compliance violations, or new Lightspeed insights.</p>
+</li>
+<li>
+<p><strong>In-Console Alerts</strong>: Utilize the console&#8217;s dashboard and notification center for immediate visibility into Lightspeed activities.</p>
+</li>
+<li>
+<p><strong>Scheduled Reports</strong>: Configure regular reports on system health, compliance posture, and applied Lightspeed recommendations.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_compliance_and_policy_alignment"><a class="anchor" href="#_compliance_and_policy_alignment"></a>Compliance and Policy Alignment</h3>
+<div class="paragraph">
+<p>RHEL Lightspeed can integrate with and enforce compliance policies, helping maintain a secure and compliant RHEL environment.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Mechanism</strong>: Lightspeed can leverage compliance data from Red Hat Insights to provide recommendations that align with security baselines or regulatory standards (e.g., DISA STIG, PCI DSS).</p>
+</li>
+<li>
+<p><strong>Configuration</strong>:</p>
+</li>
+<li>
+<p><strong>Policy Selection</strong>: In the Hybrid Cloud Console, select the relevant compliance policies or security baselines that your organization adheres to.</p>
+</li>
+<li>
+<p><strong>Custom Policies</strong>: Potentially upload custom SCAP policies or security configurations for Lightspeed to evaluate against.</p>
+</li>
+<li>
+<p><strong>Remediation Prioritization</strong>: Prioritize Lightspeed recommendations based on their impact on compliance posture.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_best_practices_for_rhel_lightspeed_configuration"><a class="anchor" href="#_best_practices_for_rhel_lightspeed_configuration"></a>Best Practices for RHEL Lightspeed Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Beyond just knowing the options, applying best practices ensures you gain the maximum benefit from RHEL Lightspeed while maintaining a secure and manageable environment.</p>
+</div>
+<div class="sect2">
+<h3 id="_1_phased_rollout_and_testing"><a class="anchor" href="#_1_phased_rollout_and_testing"></a>1. Phased Rollout and Testing</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Start Small</strong>: Begin by enabling Lightspeed on a small, non-critical set of RHEL systems (e.g., development or staging environments).</p>
+</li>
+<li>
+<p><strong>Pilot Group</strong>: Select a pilot group of users or administrators to initially interact with Lightspeed and provide feedback.</p>
+</li>
+<li>
+<p><strong>Test Playbooks</strong>: Before applying Lightspeed-generated Ansible Playbooks to production, always test them thoroughly in a controlled environment. Validate that they achieve the desired outcome without unintended side effects.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_secure_access_and_least_privilege"><a class="anchor" href="#_2_secure_access_and_least_privilege"></a>2. Secure Access and Least Privilege</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Strong RBAC</strong>: Implement the principle of least privilege. Grant users only the permissions necessary for their roles within the Hybrid Cloud Console.</p>
+</li>
+<li>
+<p><strong>MFA</strong>: Enforce Multi-Factor Authentication (MFA) for all users accessing the Hybrid Cloud Console.</p>
+</li>
+<li>
+<p><strong>Regular Audits</strong>: Periodically review user access and permissions to Lightspeed to ensure they remain appropriate.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_regular_review_and_adjustment"><a class="anchor" href="#_3_regular_review_and_adjustment"></a>3. Regular Review and Adjustment</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Review Recommendations</strong>: Actively review Lightspeed&#8217;s recommendations and insights. Understand the underlying issues and the suggested remediations.</p>
+</li>
+<li>
+<p><strong>Feedback Loop</strong>: Provide feedback on the relevance and accuracy of Lightspeed recommendations to help improve the service.</p>
+</li>
+<li>
+<p><strong>Adjust Configurations</strong>: As your environment evolves or you gain more experience, adjust Lightspeed configurations (e.g., scope, notification preferences) to better suit your needs.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_integrate_with_existing_workflows"><a class="anchor" href="#_4_integrate_with_existing_workflows"></a>4. Integrate with Existing Workflows</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Automation Pipelines</strong>: Incorporate Lightspeed-generated Ansible Playbooks directly into your existing automation and change management pipelines.</p>
+</li>
+<li>
+<p><strong>Ticketing Systems</strong>: Integrate Lightspeed notifications and recommended remediations with your IT Service Management (ITSM) or ticketing system to streamline incident response and change requests.</p>
+</li>
+<li>
+<p><strong>Source Control</strong>: Store and version control any custom Lightspeed configurations or modified playbooks (e.g., in Git) to track changes and facilitate rollbacks.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_5_documentation_and_knowledge_sharing"><a class="anchor" href="#_5_documentation_and_knowledge_sharing"></a>5. Documentation and Knowledge Sharing</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Document Configurations</strong>: Maintain clear documentation of your RHEL Lightspeed configuration, including proxy settings, RBAC roles, notification preferences, and any custom policies.</p>
+</li>
+<li>
+<p><strong>Share Knowledge</strong>: Educate your teams on how to effectively use RHEL Lightspeed, interpret its recommendations, and apply remediations.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_monitoring_and_health_checks"><a class="anchor" href="#_6_monitoring_and_health_checks"></a>6. Monitoring and Health Checks</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Insights Client Status</strong>: Regularly verify that the <code>insights-client</code> is running and successfully uploading data from your RHEL systems. Use <code>insights-client --status</code> to check.</p>
+</li>
+<li>
+<p><strong>Connectivity</strong>: Ensure that your RHEL systems have proper network connectivity to Red Hat Insights/Hybrid Cloud Console.</p>
+</li>
+<li>
+<p><strong>Service Health</strong>: Monitor the health status of RHEL Lightspeed and related Red Hat services via the Red Hat service status page.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hands_on_activity_reviewing_lightspeed_configuration_touchpoints"><a class="anchor" href="#_hands_on_activity_reviewing_lightspeed_configuration_touchpoints"></a>Hands-on Activity: Reviewing Lightspeed Configuration Touchpoints</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This activity will guide you through identifying and understanding key RHEL Lightspeed configuration touchpoints within the Red Hat Hybrid Cloud Console. Since direct modification of a specific "Lightspeed configuration file" isn&#8217;t the primary method, this exercise focuses on where you <strong>manage</strong> the environment that Lightspeed interacts with and how you <strong>control</strong> its output.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Access to a Red Hat Hybrid Cloud Console account.</p>
+</li>
+<li>
+<p>Your account has at least one RHEL system registered with Red Hat Insights (which is a prerequisite for Lightspeed).</p>
+</li>
+<li>
+<p>Your user account has appropriate permissions to view system details and settings.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>Log in to the Red Hat Hybrid Cloud Console.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open your web browser and navigate to <code><a href="https://console.redhat.com/" class="bare">https://console.redhat.com/</a></code>.</p>
+</li>
+<li>
+<p>Log in with your Red Hat account credentials.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Navigate to the Inventory for Insights.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>From the main navigation menu on the left, expand <strong>Red Hat Enterprise Linux</strong>.</p>
+</li>
+<li>
+<p>Click on <strong>Inventory</strong>.</p>
+</li>
+<li>
+<p>This page lists all RHEL systems reporting to Red Hat Insights. Lightspeed leverages data from these systems.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Review a System&#8217;s Insights Data Status.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select any active RHEL system from the <strong>Inventory</strong> list by clicking its name.</p>
+</li>
+<li>
+<p>On the system&#8217;s detail page, observe the various tabs (e.g., <strong>Advisor</strong>, <strong>Vulnerability</strong>, <strong>Compliance</strong>). These are the services that Lightspeed will draw context from to provide recommendations.</p>
+</li>
+<li>
+<p>Locate information related to the <code>insights-client</code> upload status or connectivity to ensure the system is actively reporting data.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Explore Automation Settings (Relevant for Lightspeed Playbooks).</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>From the main navigation menu, under <strong>Red Hat Enterprise Linux</strong>, click on <strong>Automation</strong> (or <strong>Automation Toolkit</strong> if available).</p>
+</li>
+<li>
+<p>This section is where you would typically link an Ansible Automation Platform instance or configure automation execution. While Lightspeed doesn&#8217;t have a direct "configuration tab" here, its output (Ansible Playbooks) is consumed by these automation services.</p>
+</li>
+<li>
+<p><strong>Consider</strong>: If you were to integrate Lightspeed-generated playbooks, this is where you would ensure your automation environment is ready to receive and execute them.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Examine User Access and Permissions (RBAC).</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>From the top-right corner of the console, click on your user avatar/icon, then select <strong>User access</strong>.</p>
+</li>
+<li>
+<p>On the <strong>User access</strong> page, click on <strong>Groups</strong> or <strong>Users</strong>.</p>
+</li>
+<li>
+<p><strong>Consider</strong>: Review the roles assigned to users and groups. Ensure that individuals who need to view Lightspeed recommendations, generate playbooks, or manage system groups have the appropriate permissions related to Red Hat Insights and Automation services.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Explore Notification Settings.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>From the top-right corner of the console, click on your user avatar/icon, then select <strong>Settings</strong>.</p>
+</li>
+<li>
+<p>Navigate to the <strong>Notifications</strong> section.</p>
+</li>
+<li>
+<p><strong>Consider</strong>: Here you can configure email notifications for various services, including <strong>Advisor</strong> and other RHEL-related insights. Lightspeed recommendations would often surface through these existing insights mechanisms. You can tailor which events trigger notifications and how frequently you receive them.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Understand System Groups.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>From the main navigation menu, under <strong>Red Hat Enterprise Linux</strong>, click on <strong>System groups</strong>.</p>
+</li>
+<li>
+<p><strong>Consider</strong>: Lightspeed often operates on groups of systems. By effectively organizing your RHEL systems into groups (e.g., by environment, application, or criticality), you can better manage and apply Lightspeed&#8217;s insights and remediations to relevant subsets of your infrastructure.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This hands-on activity illustrates that RHEL Lightspeed&#8217;s "configuration" is less about a single settings panel and more about the holistic setup and management of your RHEL systems within the Red Hat Hybrid Cloud Console, and how you integrate its AI-driven output into your existing operational workflows and automation tools.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="step-by-step-guide-for-rhel-lightspeed-setup.html">Step-by-step guide for RHEL Lightspeed setup</a></span>
+  <span class="next"><a href="../sample-deployment/sample-deployment.html">Sample Deployment</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

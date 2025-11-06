@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Post-deployment verification and troubleshooting :: RHEL Lightspeed Course Outline</title>
+    <link rel="prev" href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">
+    <link rel="next" href="../appendix/appendix.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">RHEL Lightspeed Course Outline</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-trail-1" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">RHEL Lightspeed Course Outline</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/business-use-cases-for-rhel-lightspeed.html">Business Use Cases for RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/understanding-the-benefits-of-rhel-lightspeed-for-businesses.html">Understanding the benefits of RHEL Lightspeed for businesses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/exploring-how-rhel-lightspeed-enhances-security-and-compliance.html">Exploring how RHEL Lightspeed enhances security and compliance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/identifying-key-business-scenarios-for-rhel-lightspeed-adoption.html">Identifying key business scenarios for RHEL Lightspeed adoption</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/evaluating-the-transition-from-traditional-rhel-to-rhel-lightspeed.html">Evaluating the transition from traditional RHEL to RHEL Lightspeed</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/assessing-the-impact-on-existing-workflows-and-systems.html">Assessing the impact on existing workflows and systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/strategies-for-smooth-integration-and-migration.html">Strategies for smooth integration and migration</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/prerequisites-for-rhel-lightspeed-installation.html">Prerequisites for RHEL Lightspeed installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/step-by-step-guide-for-rhel-lightspeed-setup.html">Step-by-step guide for RHEL Lightspeed setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/configuration-options-and-best-practices.html">Configuration options and best practices</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="sample-deployment.html">Sample Deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="walkthrough-of-a-typical-rhel-lightspeed-deployment.html">Walkthrough of a typical RHEL Lightspeed deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="post-deployment-verification-and-troubleshooting.html">Post-deployment verification and troubleshooting</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">RHEL Lightspeed Course Outline</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">RHEL Lightspeed Course Outline</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">RHEL Lightspeed Course Outline</a></li>
+    <li><a href="sample-deployment.html">Sample Deployment</a></li>
+    <li><a href="post-deployment-verification-and-troubleshooting.html">Post-deployment verification and troubleshooting</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Post-deployment verification and troubleshooting</h1>
+<h1 id="_post_deployment_verification_and_troubleshooting" class="sect0"><a class="anchor" href="#_post_deployment_verification_and_troubleshooting"></a>Post-deployment Verification and Troubleshooting</h1>
+<div class="paragraph">
+<p>After successfully deploying RHEL Lightspeed, performing thorough post-deployment verification is crucial to ensure that all components are functioning as expected and that your systems are properly integrated with Red Hat&#8217;s cloud services. This process helps confirm the health, connectivity, and operational readiness of your RHEL Lightspeed setup. Should any issues arise, understanding common troubleshooting techniques will enable you to quickly diagnose and resolve problems, ensuring you can leverage the full potential of RHEL Lightspeed for enhanced security, compliance, and operational efficiency.</p>
+</div>
+<div class="sect1">
+<h2 id="_verifying_rhel_lightspeed_deployment"><a class="anchor" href="#_verifying_rhel_lightspeed_deployment"></a>Verifying RHEL Lightspeed Deployment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Post-deployment verification involves a series of checks to confirm the RHEL Lightspeed agent is installed, running, connected, and reporting data correctly.</p>
+</div>
+<div class="sect2">
+<h3 id="_step_1_confirm_rhel_lightspeed_agent_service_status"><a class="anchor" href="#_step_1_confirm_rhel_lightspeed_agent_service_status"></a>Step 1: Confirm RHEL Lightspeed Agent Service Status</h3>
+<div class="paragraph">
+<p>The RHEL Lightspeed agent runs as a systemd service. The first step is to ensure this service is active and running without errors.</p>
+</div>
+<div class="paragraph">
+<div class="title">Technical Explanation</div>
+<p>The <code>rhel-lightspeed</code> service manages the interaction between your RHEL system and Red Hat&#8217;s cloud services, including sending diagnostic data and receiving recommendations. A healthy service status indicates the agent is operational.</p>
+</div>
+<div class="paragraph">
+<div class="title">Verification Command</div>
+<p>To check the service status, use the <code>systemctl</code> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo systemctl status rhel-lightspeed</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Expected Output</div>
+<p>A healthy output should show <code>Active: active (running)</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">● rhel-lightspeed.service - RHEL Lightspeed agent
+     Loaded: loaded (/usr/lib/systemd/system/rhel-lightspeed.service; enabled; vendor preset: disabled)
+     Active: active (running) since Thu 2024-07-25 10:00:00 UTC; 5min ago
+   Main PID: 12345 (rhel-lightspeed)
+      Tasks: 10 (limit: 49152)
+     Memory: 25.6M
+        CPU: 1.250s
+     CGroup: /system.slice/rhel-lightspeed.service
+             └─12345 /usr/bin/python3 -m rhel_lightspeed.agent
+...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_2_verify_system_registration"><a class="anchor" href="#_step_2_verify_system_registration"></a>Step 2: Verify System Registration</h3>
+<div class="paragraph">
+<p>RHEL Lightspeed relies on your system being correctly registered with Red Hat Subscription Management (RHSM) and connected to Red Hat Insights. This ensures the system is recognized and entitled to send data.</p>
+</div>
+<div class="paragraph">
+<div class="title">Technical Explanation</div>
+<p>The <code>subscription-manager</code> utility handles system registration, attaching subscriptions, and connecting to Red Hat&#8217;s content delivery network and cloud services. <code>ssmutil</code> provides additional utilities for managing Insights connectivity.</p>
+</div>
+<div class="paragraph">
+<div class="title">Verification Commands</div>
+<p>To check registration status and Insights connection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo subscription-manager status
+sudo ssmutil get-upload-status</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Expected Output</div>
+<p>For <code>subscription-manager status</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">+-------------------------------------------+
+   System Status Details
++-------------------------------------------+
+Overall Status: Current</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For <code>ssmutil get-upload-status</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">Insights upload success: True</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_3_check_connectivity_to_red_hat_insights_endpoints"><a class="anchor" href="#_step_3_check_connectivity_to_red_hat_insights_endpoints"></a>Step 3: Check Connectivity to Red Hat Insights Endpoints</h3>
+<div class="paragraph">
+<p>The RHEL Lightspeed agent needs to communicate with specific Red Hat Insights endpoints over HTTPS. Firewall rules, proxy settings, or network issues can prevent this.</p>
+</div>
+<div class="paragraph">
+<div class="title">Technical Explanation</div>
+<p>The agent primarily communicates with <code>cert-api.access.redhat.com</code> (for certificates), <code>subscription.rhsm.redhat.com</code> (for subscription data), and <code>cloud.redhat.com</code> (for Insights data upload). Direct network connectivity is essential.</p>
+</div>
+<div class="paragraph">
+<div class="title">Verification Commands</div>
+<p>You can use <code>curl</code> to test connectivity to key endpoints. Replace <code>proxy.example.com:8080</code> with your actual proxy if applicable.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash"># Test connectivity to Insights upload endpoint
+curl -v https://cloud.redhat.com/api/insights/v1/ping
+
+# Test connectivity to subscription service
+curl -v https://subscription.rhsm.redhat.com/subscription
+
+# Test connectivity to certificate service
+curl -v https://cert-api.access.redhat.com/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you are using a proxy, you might need to specify it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">export https_proxy="http://proxy.example.com:8080"
+curl -v https://cloud.redhat.com/api/insights/v1/ping</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Expected Output</div>
+<p>A successful <code>curl</code> command should return an HTTP 200 OK status or similar indication of connection. Look for <code>* Connected to cloud.redhat.com</code> and <code>HTTP/1.1 200 OK</code> or <code>HTTP/1.1 401 Unauthorized</code> (which indicates server reachability, but perhaps an authentication issue, not a connectivity issue).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_4_validate_initial_insights_and_recommendations"><a class="anchor" href="#_step_4_validate_initial_insights_and_recommendations"></a>Step 4: Validate Initial Insights and Recommendations</h3>
+<div class="paragraph">
+<p>After successful deployment and data upload, your RHEL Lightspeed recommendations should begin appearing in the Red Hat Hybrid Cloud Console.</p>
+</div>
+<div class="paragraph">
+<div class="title">Technical Explanation</div>
+<p>It can take some time (typically 15-30 minutes for initial data, then hourly updates) for data to be processed and recommendations to appear in the Red Hat Hybrid Cloud Console (console.redhat.com).</p>
+</div>
+<div class="olist arabic">
+<div class="title">Verification Steps</div>
+<ol class="arabic">
+<li>
+<p>Open your web browser and navigate to <code><a href="https://console.redhat.com/insights/" class="bare">https://console.redhat.com/insights/</a></code>.</p>
+</li>
+<li>
+<p>Log in with your Red Hat account.</p>
+</li>
+<li>
+<p>Navigate to the <strong>Red Hat Insights</strong> dashboard.</p>
+</li>
+<li>
+<p>Look for your registered RHEL system in the inventory.</p>
+</li>
+<li>
+<p>Check for generated recommendations or "actions" related to your system.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Expected Outcome</div>
+<p>Your deployed RHEL system should appear in the Red Hat Insights inventory, and after a short delay, you should start seeing RHEL Lightspeed-generated recommendations based on its analysis.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_5_review_rhel_lightspeed_log_files"><a class="anchor" href="#_step_5_review_rhel_lightspeed_log_files"></a>Step 5: Review RHEL Lightspeed Log Files</h3>
+<div class="paragraph">
+<p>Log files are invaluable for diagnosing any issues that are not immediately apparent.</p>
+</div>
+<div class="paragraph">
+<div class="title">Technical Explanation</div>
+<p>The RHEL Lightspeed agent logs its activities and any errors to the system journal. Reviewing these logs can provide detailed information about connectivity, data processing, and potential failures.</p>
+</div>
+<div class="paragraph">
+<div class="title">Verification Command</div>
+<p>To view the logs for the <code>rhel-lightspeed</code> service:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo journalctl -u rhel-lightspeed --since "5 minutes ago"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To view the full logs and search for errors:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo journalctl -u rhel-lightspeed | less -p "ERROR|WARN|FAIL"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Expected Output</div>
+<p>Look for messages indicating successful data uploads, processing, or any <code>ERROR</code> or <code>WARNING</code> messages that might point to a problem.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_troubleshooting_common_rhel_lightspeed_issues"><a class="anchor" href="#_troubleshooting_common_rhel_lightspeed_issues"></a>Troubleshooting Common RHEL Lightspeed Issues</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Even with careful deployment, issues can arise. Here&#8217;s how to approach common troubleshooting scenarios.</p>
+</div>
+<div class="sect2">
+<h3 id="_issue_1_rhel_lightspeed_agent_service_not_running"><a class="anchor" href="#_issue_1_rhel_lightspeed_agent_service_not_running"></a>Issue 1: RHEL Lightspeed Agent Service Not Running</h3>
+<div class="paragraph">
+<p>If <code>sudo systemctl status rhel-lightspeed</code> shows the service as <code>inactive</code> or <code>failed</code>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Technical Explanation</div>
+<p>This indicates a problem with the agent&#8217;s startup or continued operation. It could be due to configuration errors, missing dependencies, or resource constraints.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Troubleshooting Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>Check Service Status and Logs:</strong>
+<code><code>bash
+sudo systemctl status rhel-lightspeed -l --no-pager
+sudo journalctl -u rhel-lightspeed --since "1 hour ago" -e
+</code></code>
+Look for specific error messages.</p>
+</li>
+<li>
+<p><strong>Attempt to Start/Restart:</strong>
+<code><code>bash
+sudo systemctl restart rhel-lightspeed
+sudo systemctl status rhel-lightspeed
+</code></code></p>
+</li>
+<li>
+<p><strong>Check Configuration:</strong> Ensure the configuration file (if any specific to Lightspeed is used, or default) is syntactically correct and permissions are set. While Lightspeed typically uses default Insights configuration, custom setups might exist.</p>
+</li>
+<li>
+<p><strong>Resource Availability:</strong> Ensure the system has sufficient memory and CPU.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_issue_2_system_not_reporting_to_red_hat_insights"><a class="anchor" href="#_issue_2_system_not_reporting_to_red_hat_insights"></a>Issue 2: System Not Reporting to Red Hat Insights</h3>
+<div class="paragraph">
+<p><code>sudo ssmutil get-upload-status</code> shows <code>Insights upload success: False</code>, or the system doesn&#8217;t appear in <code>console.redhat.com/insights/inventory</code>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Technical Explanation</div>
+<p>This typically points to network connectivity problems, firewall blocks, proxy misconfigurations, or issues with system registration/entitlement.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Troubleshooting Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>Verify System Registration:</strong>
+<code><code>bash
+sudo subscription-manager status
+sudo subscription-manager identity
+</code></code>
+Ensure the system is registered and has an active subscription. If not, re-register:
+<code><code>bash
+sudo subscription-manager unregister
+sudo subscription-manager clean
+sudo subscription-manager register --username=&lt;your_redhat_username&gt; --password=&lt;your_redhat_password&gt; --auto-attach
+</code></code></p>
+</li>
+<li>
+<p><strong>Check Network Connectivity (refer to Step 3 of Verification):</strong> Use <code>curl</code> to test connectivity to <code>cert-api.access.redhat.com</code>, <code>subscription.rhsm.redhat.com</code>, and <code>cloud.redhat.com</code>.</p>
+</li>
+<li>
+<p><strong>Firewall Configuration:</strong> Ensure outbound HTTPS (port 443) traffic is allowed to Red Hat&#8217;s domains.
+<code><code>bash
+sudo firewall-cmd --list-all
+</code></code>
+If using <code>firewalld</code>, you might need to add rules. For example:
+<code><code>bash
+sudo firewall-cmd --permanent --zone=public --add-service=https
+sudo firewall-cmd --reload
+</code></code></p>
+</li>
+<li>
+<p><strong>Proxy Configuration:</strong> If your environment uses a proxy, ensure it&#8217;s correctly configured for the RHEL Lightspeed agent. Proxy settings are typically handled by <code>ssmutil</code> or environment variables for <code>rhsm-sat-migrator</code> if used. For general system-wide proxy settings, refer to <code>/etc/profile.d/proxy.sh</code> or <code>/etc/yum.repos.d/*.repo</code> files. For Insights specifically, check <code>ssmutil</code> options or ensure <code>http_proxy</code>/<code>https_proxy</code> environment variables are set before running registration/upload commands.
+<code><code>bash
+sudo ssmutil get-system-proxy
+</code></code>
+You may need to configure proxy settings via <code>subscription-manager config</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_issue_3_no_rhel_lightspeed_recommendations_appearing"><a class="anchor" href="#_issue_3_no_rhel_lightspeed_recommendations_appearing"></a>Issue 3: No RHEL Lightspeed Recommendations Appearing</h3>
+<div class="paragraph">
+<p>The system is registered, reporting to Insights, but no specific RHEL Lightspeed recommendations are shown after a reasonable delay.</p>
+</div>
+<div class="paragraph">
+<div class="title">Technical Explanation</div>
+<p>This could be due to data processing delays, specific content policies preventing recommendations, or the system not yet generating relevant insights that Lightspeed can act upon.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Troubleshooting Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>Wait for Data Processing:</strong> Allow at least 30-60 minutes after initial successful upload for data to be processed and recommendations to appear.</p>
+</li>
+<li>
+<p><strong>Check Red Hat Insights Policies:</strong> In the Red Hat Hybrid Cloud Console, navigate to Insights policies. Ensure no policies are inadvertently filtering out or suppressing RHEL Lightspeed recommendations.</p>
+</li>
+<li>
+<p><strong>Review System Activity:</strong> Check the system&#8217;s compliance and vulnerability reports within Insights. If there are no issues detected by standard Insights, Lightspeed might not have additional recommendations to provide immediately.</p>
+</li>
+<li>
+<p><strong>Verify Lightspeed is Active:</strong> Ensure your Red Hat account is entitled to RHEL Lightspeed and that the feature is generally available and active for your organization.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_issue_4_authentication_or_authorization_errors"><a class="anchor" href="#_issue_4_authentication_or_authorization_errors"></a>Issue 4: Authentication or Authorization Errors</h3>
+<div class="paragraph">
+<p>Errors related to credentials, permissions, or access when attempting to register or upload data.</p>
+</div>
+<div class="paragraph">
+<div class="title">Technical Explanation</div>
+<p>These errors mean the system or user doesn&#8217;t have the necessary rights to perform an action. This could be incorrect Red Hat credentials, expired subscriptions, or insufficient permissions on the Red Hat account.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Troubleshooting Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>Verify Red Hat Account Credentials:</strong> Double-check the username and password used for <code>subscription-manager register</code>.</p>
+</li>
+<li>
+<p><strong>Check Subscription Status:</strong> Confirm that your Red Hat account has an active and valid RHEL subscription. Log in to <code>access.redhat.com</code> and check your subscriptions.</p>
+</li>
+<li>
+<p><strong>Review Account Permissions:</strong> Ensure the Red Hat account has the necessary permissions within the organization to register systems and utilize Insights/Lightspeed services.</p>
+</li>
+<li>
+<p><strong>Renew Certificates:</strong> If certificates are expired, it can cause authentication issues.
+<code><code>bash
+sudo subscription-manager refresh
+</code></code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_issue_5_network_and_firewall_configuration_problems"><a class="anchor" href="#_issue_5_network_and_firewall_configuration_problems"></a>Issue 5: Network and Firewall Configuration Problems</h3>
+<div class="paragraph">
+<p>Specific errors mentioning connection refused, timeouts, or SSL/TLS handshake failures.</p>
+</div>
+<div class="paragraph">
+<div class="title">Technical Explanation</div>
+<p>These are classic network issues. They indicate that the RHEL Lightspeed agent cannot establish a secure connection to Red Hat&#8217;s servers.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Troubleshooting Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>Local Firewall:</strong>
+<code><code>bash
+sudo firewall-cmd --list-all
+</code></code>
+Ensure outbound HTTPS (port 443) is allowed. Temporarily disable the firewall for testing if necessary (but <strong>never</strong> in production without understanding the risks):
+<code><code>bash
+sudo systemctl stop firewalld
+# Test connectivity
+sudo systemctl start firewalld
+</code></code></p>
+</li>
+<li>
+<p><strong>Corporate Firewall/Proxy:</strong> If you&#8217;re behind a corporate firewall, ensure it&#8217;s configured to allow outbound HTTPS traffic to Red Hat domains. Contact your network administrator.</p>
+</li>
+<li>
+<p><strong>SELinux:</strong> While less common for Lightspeed, SELinux can sometimes block network access for specific services.
+<code><code>bash
+sudo audit2allow -a
+</code></code>
+Look for relevant AVC denials.</p>
+</li>
+<li>
+<p><strong>DNS Resolution:</strong> Ensure the system can resolve Red Hat&#8217;s hostnames:
+<code><code>bash
+dig cloud.redhat.com
+</code></code>
+Verify the output shows correct IP addresses.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_post_deployment_verification_and_basic_troubleshooting"><a class="anchor" href="#_lab_post_deployment_verification_and_basic_troubleshooting"></a>Lab: Post-deployment Verification and Basic Troubleshooting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This lab guides you through verifying your RHEL Lightspeed deployment and practicing basic troubleshooting techniques.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This lab assumes you have successfully completed the "Deploying RHEL Lightspeed in a controlled environment" lab and have a deployed RHEL Lightspeed instance ready for verification. You will need <code>sudo</code> privileges on the RHEL system.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_activity_1_verifying_rhel_lightspeed_agent_status_and_registration"><a class="anchor" href="#_activity_1_verifying_rhel_lightspeed_agent_status_and_registration"></a>Activity 1: Verifying RHEL Lightspeed Agent Status and Registration</h3>
+<div class="paragraph">
+<p>In this activity, you will confirm that the RHEL Lightspeed agent service is running and that your system is correctly registered with Red Hat Insights.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>Open a terminal</strong> on your RHEL system where RHEL Lightspeed was deployed.</p>
+</li>
+<li>
+<p><strong>Check the RHEL Lightspeed agent service status:</strong>
+<code><code>bash
+sudo systemctl status rhel-lightspeed
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Expected Outcome:</strong> The output should show <code>Active: active (running)</code>.</p>
+</li>
+<li>
+<p><strong>Troubleshooting:</strong> If it&#8217;s <code>inactive</code> or <code>failed</code>, proceed to the troubleshooting steps in "Issue 1: RHEL Lightspeed Agent Service Not Running" above, paying close attention to the <code>journalctl</code> output for error messages. Attempt to restart the service using <code>sudo systemctl restart rhel-lightspeed</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Verify system registration with Red Hat Subscription Management:</strong>
+<code><code>bash
+sudo subscription-manager status
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Expected Outcome:</strong> The <code>Overall Status</code> should be <code>Current</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Confirm Insights upload status:</strong>
+<code><code>bash
+sudo ssmutil get-upload-status
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Expected Outcome:</strong> <code>Insights upload success: True</code>.</p>
+</li>
+<li>
+<p><strong>Troubleshooting:</strong> If either registration status is not <code>Current</code> or upload status is <code>False</code>, refer to "Issue 2: System Not Reporting to Red Hat Insights" for steps to re-register or diagnose connectivity.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activity_2_confirming_red_hat_insights_connectivity"><a class="anchor" href="#_activity_2_confirming_red_hat_insights_connectivity"></a>Activity 2: Confirming Red Hat Insights Connectivity</h3>
+<div class="paragraph">
+<p>This activity verifies that your RHEL system can communicate with the necessary Red Hat Insights endpoints.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>Test connectivity to Red Hat&#8217;s certificate API endpoint:</strong>
+<code><code>bash
+curl -v <a href="https://cert-api.access.redhat.com/" class="bare">https://cert-api.access.redhat.com/</a>
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Expected Outcome:</strong> Look for <code>* Connected to cert-api.access.redhat.com</code> and an <code>HTTP/1.1 200 OK</code> status, or similar success.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Test connectivity to Red Hat&#8217;s Insights upload endpoint:</strong>
+<code><code>bash
+curl -v <a href="https://cloud.redhat.com/api/insights/v1/ping" class="bare">https://cloud.redhat.com/api/insights/v1/ping</a>
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Expected Outcome:</strong> Look for <code>* Connected to cloud.redhat.com</code> and an <code>HTTP/1.1 200 OK</code> or <code>HTTP/1.1 401 Unauthorized</code> (the latter indicates connectivity, but not necessarily valid auth).</p>
+</li>
+<li>
+<p><strong>Troubleshooting:</strong> If these <code>curl</code> commands fail (e.g., <code>Failed to connect</code>, <code>Connection refused</code>, <code>SSL handshake failed</code>), check your network configuration, proxy settings, and firewall rules. Refer to "Issue 2: System Not Reporting to Red Hat Insights" and "Issue 5: Network and Firewall Configuration Problems" for detailed troubleshooting.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Verify system presence and recommendations in Red Hat Hybrid Cloud Console:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Open your web browser and go to <code><a href="https://console.redhat.com/insights/" class="bare">https://console.redhat.com/insights/</a></code>.</p>
+</li>
+<li>
+<p>Log in with your Red Hat account.</p>
+</li>
+<li>
+<p>Navigate to <strong>Red Hat Insights</strong> &#8594; <strong>Inventory</strong> and locate your RHEL system.</p>
+</li>
+<li>
+<p>Check for any generated recommendations or "actions" for your system, potentially including RHEL Lightspeed specific ones.</p>
+</li>
+<li>
+<p><strong>Expected Outcome:</strong> Your system should be listed, and after some time (up to 30-60 minutes), recommendations should start to appear.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activity_3_reviewing_rhel_lightspeed_logs_for_anomalies"><a class="anchor" href="#_activity_3_reviewing_rhel_lightspeed_logs_for_anomalies"></a>Activity 3: Reviewing RHEL Lightspeed Logs for Anomalies</h3>
+<div class="paragraph">
+<p>Understanding how to review logs is crucial for advanced troubleshooting.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>View recent RHEL Lightspeed agent logs:</strong>
+<code><code>bash
+sudo journalctl -u rhel-lightspeed --since "30 minutes ago" -e
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Observe:</strong> Look for messages indicating successful operations, data uploads, or any errors or warnings. Pay attention to timestamps.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Search for error messages within the logs:</strong>
+<code><code>bash
+sudo journalctl -u rhel-lightspeed | grep -i "ERROR\|FAIL\|WARN"
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Observe:</strong> If any errors or warnings appear, these are key indicators of problems. Note down the specific messages and timestamps. This information is vital for further diagnosis or when seeking support.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activity_4_simulating_and_troubleshooting_a_connectivity_issue_optional_advanced"><a class="anchor" href="#_activity_4_simulating_and_troubleshooting_a_connectivity_issue_optional_advanced"></a>Activity 4: Simulating and Troubleshooting a Connectivity Issue (Optional, Advanced)</h3>
+<div class="paragraph">
+<p>This activity provides a hands-on experience in diagnosing a common connectivity problem.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p><strong>(Simulation Step - DO NOT perform in a production environment):</strong> Intentionally block outbound HTTPS traffic for a short period to simulate a firewall issue.
+<code><code>bash
+# This example blocks all outbound port 443 traffic using iptables.
+# ONLY do this in a controlled lab environment.
+sudo iptables -A OUTPUT -p tcp --dport 443 -j DROP
+</code></code></p>
+</li>
+<li>
+<p><strong>Attempt to trigger an Insights upload or restart the Lightspeed service:</strong>
+<code><code>bash
+sudo systemctl restart rhel-lightspeed
+sudo ssmutil upload
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Expected Outcome:</strong> The <code>ssmutil upload</code> command should likely fail or time out. The Lightspeed service might report errors in its logs.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Diagnose the issue using verification techniques:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Run <code>sudo systemctl status rhel-lightspeed</code> and <code>sudo journalctl -u rhel-lightspeed</code> to see if there are new error messages related to connectivity.</p>
+</li>
+<li>
+<p>Attempt <code>curl -v <a href="https://cloud.redhat.com/api/insights/v1/ping" class="bare">https://cloud.redhat.com/api/insights/v1/ping</a></code> again. It should fail.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Resolve the simulated issue:</strong>
+<code><code>bash
+# Remove the iptables rule. Adjust if you used a different method to block.
+sudo iptables -D OUTPUT -p tcp --dport 443 -j DROP
+</code></code></p>
+</li>
+<li>
+<p><strong>Verify resolution:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Run <code>sudo systemctl restart rhel-lightspeed</code>.</p>
+</li>
+<li>
+<p>Run <code>sudo ssmutil upload</code>.</p>
+</li>
+<li>
+<p>Run <code>curl -v <a href="https://cloud.redhat.com/api/insights/v1/ping" class="bare">https://cloud.redhat.com/api/insights/v1/ping</a></code>.</p>
+</li>
+<li>
+<p>Check <code>sudo journalctl -u rhel-lightspeed</code> for successful messages.</p>
+</li>
+<li>
+<p><strong>Expected Outcome:</strong> All verification steps should now succeed, and error messages should no longer appear in the logs.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>By completing these verification and troubleshooting activities, you gain practical experience in ensuring your RHEL Lightspeed deployment is healthy and in resolving common operational issues.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a></span>
+  <span class="next"><a href="../appendix/appendix.html">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

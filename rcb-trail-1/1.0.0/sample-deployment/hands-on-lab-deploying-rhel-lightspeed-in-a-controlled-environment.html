@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hands-on lab: Deploying RHEL Lightspeed in a controlled environment :: RHEL Lightspeed Course Outline</title>
+    <link rel="prev" href="walkthrough-of-a-typical-rhel-lightspeed-deployment.html">
+    <link rel="next" href="post-deployment-verification-and-troubleshooting.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">RHEL Lightspeed Course Outline</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-trail-1" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">RHEL Lightspeed Course Outline</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/business-use-cases-for-rhel-lightspeed.html">Business Use Cases for RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/understanding-the-benefits-of-rhel-lightspeed-for-businesses.html">Understanding the benefits of RHEL Lightspeed for businesses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/exploring-how-rhel-lightspeed-enhances-security-and-compliance.html">Exploring how RHEL Lightspeed enhances security and compliance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/identifying-key-business-scenarios-for-rhel-lightspeed-adoption.html">Identifying key business scenarios for RHEL Lightspeed adoption</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/evaluating-the-transition-from-traditional-rhel-to-rhel-lightspeed.html">Evaluating the transition from traditional RHEL to RHEL Lightspeed</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/assessing-the-impact-on-existing-workflows-and-systems.html">Assessing the impact on existing workflows and systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/strategies-for-smooth-integration-and-migration.html">Strategies for smooth integration and migration</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/prerequisites-for-rhel-lightspeed-installation.html">Prerequisites for RHEL Lightspeed installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/step-by-step-guide-for-rhel-lightspeed-setup.html">Step-by-step guide for RHEL Lightspeed setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/configuration-options-and-best-practices.html">Configuration options and best practices</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="sample-deployment.html">Sample Deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="walkthrough-of-a-typical-rhel-lightspeed-deployment.html">Walkthrough of a typical RHEL Lightspeed deployment</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="post-deployment-verification-and-troubleshooting.html">Post-deployment verification and troubleshooting</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">RHEL Lightspeed Course Outline</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">RHEL Lightspeed Course Outline</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">RHEL Lightspeed Course Outline</a></li>
+    <li><a href="sample-deployment.html">Sample Deployment</a></li>
+    <li><a href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>:hands-on-lab-deploying-rhel-lightspeed.adoc[]
+= Hands-on Lab: Deploying RHEL Lightspeed in a Controlled Environment</p>
+</div>
+<div class="paragraph">
+<p>In this hands-on lab, you will gain practical experience deploying RHEL Lightspeed within a controlled virtual machine environment. This exercise will walk you through the necessary prerequisites, installation steps, and initial configuration to get RHEL Lightspeed up and running on a RHEL instance. Understanding this deployment process is crucial for integrating RHEL Lightspeed into your existing infrastructure and leveraging its capabilities for enhanced operational efficiency and security.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_learning_objectives"><a class="anchor" href="#_learning_objectives"></a>Learning Objectives</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Upon completion of this lab, you will be able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Prepare a RHEL system for RHEL Lightspeed installation.</p>
+</li>
+<li>
+<p>Enable the required Red Hat repositories for RHEL Lightspeed.</p>
+</li>
+<li>
+<p>Install the RHEL Lightspeed client/agent packages.</p>
+</li>
+<li>
+<p>Perform basic post-installation verification.</p>
+</li>
+<li>
+<p>Understand the initial steps for connecting to the Red Hat Hybrid Cloud Console.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To successfully complete this lab, you will need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A running Red Hat Enterprise Linux (RHEL) 8 or 9 virtual machine or bare-metal server.</p>
+</li>
+<li>
+<p>Minimum 2 vCPUs, 4 GB RAM, 20 GB disk space.</p>
+</li>
+<li>
+<p>The RHEL system must have an active Red Hat subscription and be registered with Red Hat Subscription Management.</p>
+</li>
+<li>
+<p>Internet connectivity for the RHEL system to access Red Hat repositories.</p>
+</li>
+<li>
+<p>Root or <code>sudo</code> privileges on the RHEL system.</p>
+</li>
+<li>
+<p>A Red Hat account with access to console.redhat.com (for potential future integration steps, though the lab focuses on local deployment).</p>
+</li>
+<li>
+<p>A terminal emulator (e.g., GNOME Terminal, PuTTY, or SSH client).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_environment_setup"><a class="anchor" href="#_lab_environment_setup"></a>Lab Environment Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before we deploy RHEL Lightspeed, let&#8217;s ensure our RHEL system is properly prepared.</p>
+</div>
+<div class="sect2">
+<h3 id="_step_1_access_your_rhel_system"><a class="anchor" href="#_step_1_access_your_rhel_system"></a>Step 1: Access Your RHEL System</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connect to your RHEL system via SSH or through its console.
+<code><code>bash
+ssh username@your_rhel_ip_address
+</code></code>
+<strong>Replace <code>username</code> and <code>your_rhel_ip_address</code> with your actual credentials and IP address.</strong></p>
+</li>
+<li>
+<p>Switch to the root user or ensure you have <code>sudo</code> privileges.
+<code><code>bash
+sudo -i
+</code></code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_2_verify_rhel_subscription_and_system_updates"><a class="anchor" href="#_step_2_verify_rhel_subscription_and_system_updates"></a>Step 2: Verify RHEL Subscription and System Updates</h3>
+<div class="paragraph">
+<p>It&#8217;s critical that your RHEL system is registered and up-to-date.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Verify the subscription status.
+<code><code>bash
+subscription-manager status
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>You should see <code>Current Status: Subscribed</code> and <code>Overall Status: Current</code>. If not, you may need to register your system:
+<code><code>bash
+subscription-manager register --username=&lt;your-redhat-username&gt; --password=&lt;your-redhat-password&gt; --auto-attach
+</code></code>
+<strong>Replace <code>&lt;your-redhat-username&gt;</code> and <code>&lt;your-redhat-password&gt;</code> with your Red Hat account credentials.</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Update all installed packages to their latest versions.
+<code><code>bash
+dnf update -y
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This ensures you have the latest security patches and library dependencies. Reboot if prompted or if a kernel update occurred.
+<code><code>bash
+reboot
+</code></code></p>
+</li>
+<li>
+<p>Reconnect to your system after the reboot.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_3_install_essential_utilities_if_not_present"><a class="anchor" href="#_step_3_install_essential_utilities_if_not_present"></a>Step 3: Install Essential Utilities (if not present)</h3>
+<div class="paragraph">
+<p>Ensure basic development tools and network utilities are available.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install <code>dnf-utils</code> and <code>net-tools</code>.
+<code><code>bash
+dnf install -y dnf-utils net-tools
+</code></code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploying_rhel_lightspeed"><a class="anchor" href="#_deploying_rhel_lightspeed"></a>Deploying RHEL Lightspeed</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that our system is prepared, we can proceed with the RHEL Lightspeed deployment. The exact package names and repository IDs for RHEL Lightspeed may vary as the service evolves. For this lab, we will use illustrative names that align with typical Red Hat service integration.</p>
+</div>
+<div class="sect2">
+<h3 id="_step_1_enable_rhel_lightspeed_repositories"><a class="anchor" href="#_step_1_enable_rhel_lightspeed_repositories"></a>Step 1: Enable RHEL Lightspeed Repositories</h3>
+<div class="paragraph">
+<p>RHEL Lightspeed components are typically delivered through specific Red Hat content repositories. You need to enable these.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List available repositories to identify potential Lightspeed-related ones.
+<code><code>bash
+subscription-manager repos --list | grep -i rhel-lightspeed
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Observation</strong>: You might not see <code>rhel-lightspeed</code> directly listed initially. This is common; sometimes, it&#8217;s part of an existing channel or a new channel needs to be enabled.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For this lab, let&#8217;s assume the RHEL Lightspeed components are available via a new repository or a specific module stream. We&#8217;ll enable a placeholder repository.
+```bash
+# This is an illustrative command. The actual repo ID will be provided by Red Hat.
+# Example: enabling a repository if it exists.
+# subscription-manager repos --enable=rhel-8-for-x86_64-lightspeed-rpms
+# subscription-manager repos --enable=rhel-9-for-x86_64-lightspeed-rpms</p>
+<div class="literalblock">
+<div class="content">
+<pre># Let's assume for this lab, we need to enable a specific module stream or a content view that grants access.
+# For now, we will proceed assuming that a future 'dnf install' command will pull from enabled channels.
+# If a specific 'rhel-lightspeed' repo becomes available, you would enable it here.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>echo "INFO: Assuming RHEL Lightspeed packages are available via existing enabled RHEL channels or a subscription auto-enables them."
+```
+*   *Note*: In a real-world scenario, Red Hat documentation would specify the exact `subscription-manager` command to enable the RHEL Lightspeed repository or module stream. For the purpose of this lab, we will assume it's made available once your subscription is properly attached.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_2_install_rhel_lightspeed_components"><a class="anchor" href="#_step_2_install_rhel_lightspeed_components"></a>Step 2: Install RHEL Lightspeed Components</h3>
+<div class="paragraph">
+<p>RHEL Lightspeed typically involves an agent or a set of tools installed on the RHEL system that communicate with a central service (e.g., the Red Hat Hybrid Cloud Console).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install the RHEL Lightspeed agent package.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Note</strong>: The package name is illustrative. A real package name might be <code>rhel-lightspeed-agent</code>, <code>insights-client-lightspeed</code>, or similar.
+```bash
+# Install the RHEL Lightspeed core package
+# For the purpose of this lab, let&#8217;s simulate by installing a common utility that might be part of its dependency,
+# or assume a package like 'rhel-lightspeed-utils' exists.
+dnf install -y rhel-lightspeed-utils
+# If the specific package name is known, replace 'rhel-lightspeed-utils' with the actual one.
+# dnf install -y rHEL-Lightspeed-Agent</p>
+<div class="literalblock">
+<div class="content">
+<pre>echo "INFO: Successfully installed illustrative RHEL Lightspeed utility package."
+```
+*   *Troubleshooting Tip*: If `dnf` cannot find the package, double-check your subscription and ensure all relevant repositories are enabled (`subscription-manager repos --list-enabled`).</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Verify the installation.
+<code><code>bash
+rpm -q rhel-lightspeed-utils
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This command should return the package name and version if installed successfully.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_3_initial_configuration_and_service_activation"><a class="anchor" href="#_step_3_initial_configuration_and_service_activation"></a>Step 3: Initial Configuration and Service Activation</h3>
+<div class="paragraph">
+<p>After installation, RHEL Lightspeed components often require activation or initial configuration to connect to the Red Hat Hybrid Cloud Console. This usually involves:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Generating an API key or an activation code from <code>console.redhat.com</code>.</p>
+</li>
+<li>
+<p>Running a command on the RHEL system to register it with the Lightspeed service.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Generate Activation Key (Illustrative - outside this lab&#8217;s scope, but important concept):</strong></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In a real scenario, you would log in to <code>console.redhat.com</code>, navigate to the RHEL Lightspeed section, and generate an activation key or follow the onboarding wizard. This key would then be used on your RHEL system.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Configure and Start the RHEL Lightspeed Service (Illustrative):</strong>
+Let&#8217;s assume there&#8217;s a configuration utility or a <code>systemd</code> service.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+# Check if a RHEL Lightspeed service exists
+systemctl status rhel-lightspeed-agent.service</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># If the service doesn't exist, we might have a configuration utility
+# For this lab, we will simulate a configuration step.
+echo "This is where you would typically run a configuration command to link your RHEL system with the RHEL Lightspeed service on console.redhat.com."
+echo "Example (hypothetical): rhel-lightspeed-config --api-key &lt;YOUR_API_KEY_FROM_CONSOLE&gt;"</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Enable and start the illustrative service if it exists
+# systemctl enable --now rhel-lightspeed-agent.service
+echo "INFO: Assuming any necessary services are automatically enabled and started or configured via the management console."
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_step_4_post_deployment_verification"><a class="anchor" href="#_step_4_post_deployment_verification"></a>Step 4: Post-Deployment Verification</h3>
+<div class="paragraph">
+<p>Let&#8217;s verify that RHEL Lightspeed components are running and potentially reporting to the Red Hat Hybrid Cloud Console.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Check the status of the RHEL Lightspeed service (if one was assumed to be installed).
+<code><code>bash
+systemctl status rhel-lightspeed-agent.service
+</code></code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>You should see <code>Active: active (running)</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Verify connectivity to Red Hat Hybrid Cloud Console (if applicable).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Some RHEL Lightspeed clients might have a diagnostic command.
+<code><code>bash
+# Hypothetical command to check connectivity
+# rhel-lightspeed-agent --check-connection
+echo "INFO: If an agent is running, it should now be attempting to connect to console.redhat.com. Check the logs for details."
+journalctl -u rhel-lightspeed-agent.service -f
+</code></code></p>
+</li>
+<li>
+<p>Look for messages indicating successful connection or registration.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Login to <code>console.redhat.com</code> (if you have an account) and navigate to the RHEL Lightspeed or Insights section.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Observation</strong>: You should eventually see your registered RHEL system appearing in the inventory, potentially with Lightspeed capabilities enabled. This step demonstrates the end-to-end integration.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conclusion"><a class="anchor" href="#_conclusion"></a>Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Congratulations! You have successfully deployed the foundational components of RHEL Lightspeed in your controlled environment. You&#8217;ve walked through the process of preparing a RHEL system, enabling the necessary repositories, installing key packages, and performing initial verification.</p>
+</div>
+<div class="paragraph">
+<p>This hands-on experience provides a solid understanding of the deployment process, which is a critical first step in leveraging RHEL Lightspeed for operational efficiency, enhanced security, and intelligent insights into your RHEL estate. The next steps would involve deeper configuration, integrating with specific workflows, and utilizing the Lightspeed-enhanced commands and recommendations.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="walkthrough-of-a-typical-rhel-lightspeed-deployment.html">Walkthrough of a typical RHEL Lightspeed deployment</a></span>
+  <span class="next"><a href="post-deployment-verification-and-troubleshooting.html">Post-deployment verification and troubleshooting</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

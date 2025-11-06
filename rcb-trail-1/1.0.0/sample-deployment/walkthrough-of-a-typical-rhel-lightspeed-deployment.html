@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Walkthrough of a typical RHEL Lightspeed deployment :: RHEL Lightspeed Course Outline</title>
+    <link rel="prev" href="sample-deployment.html">
+    <link rel="next" href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">RHEL Lightspeed Course Outline</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-trail-1" data-version="1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">RHEL Lightspeed Course Outline</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/business-use-cases-for-rhel-lightspeed.html">Business Use Cases for RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/understanding-the-benefits-of-rhel-lightspeed-for-businesses.html">Understanding the benefits of RHEL Lightspeed for businesses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/exploring-how-rhel-lightspeed-enhances-security-and-compliance.html">Exploring how RHEL Lightspeed enhances security and compliance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/identifying-key-business-scenarios-for-rhel-lightspeed-adoption.html">Identifying key business scenarios for RHEL Lightspeed adoption</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/evaluating-the-transition-from-traditional-rhel-to-rhel-lightspeed.html">Evaluating the transition from traditional RHEL to RHEL Lightspeed</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/assessing-the-impact-on-existing-workflows-and-systems.html">Assessing the impact on existing workflows and systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/strategies-for-smooth-integration-and-migration.html">Strategies for smooth integration and migration</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/prerequisites-for-rhel-lightspeed-installation.html">Prerequisites for RHEL Lightspeed installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/step-by-step-guide-for-rhel-lightspeed-setup.html">Step-by-step guide for RHEL Lightspeed setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/configuration-options-and-best-practices.html">Configuration options and best practices</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="sample-deployment.html">Sample Deployment</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="walkthrough-of-a-typical-rhel-lightspeed-deployment.html">Walkthrough of a typical RHEL Lightspeed deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="post-deployment-verification-and-troubleshooting.html">Post-deployment verification and troubleshooting</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">RHEL Lightspeed Course Outline</span>
+    <span class="version">1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">RHEL Lightspeed Course Outline</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">RHEL Lightspeed Course Outline</a></li>
+    <li><a href="sample-deployment.html">Sample Deployment</a></li>
+    <li><a href="walkthrough-of-a-typical-rhel-lightspeed-deployment.html">Walkthrough of a typical RHEL Lightspeed deployment</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Walkthrough of a typical RHEL Lightspeed deployment</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides a comprehensive walkthrough of a typical RHEL Lightspeed deployment, focusing on how RHEL systems integrate with Red Hat Insights to leverage Lightspeed&#8217;s AI-powered recommendations. We&#8217;ll detail the technical steps involved and provide a hands-on lab to solidify your understanding.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+RHEL Lightspeed is not a standalone product you install. Instead, it&#8217;s an AI service that enhances the capabilities of Red Hat Insights, providing more relevant and contextualized recommendations based on your RHEL environment. The "deployment" of RHEL Lightspeed, therefore, primarily involves ensuring your RHEL systems are correctly configured to report to Red Hat Insights.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_understanding_the_rhel_lightspeed_integration_model"><a class="anchor" href="#_understanding_the_rhel_lightspeed_integration_model"></a>Understanding the RHEL Lightspeed Integration Model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before diving into the steps, it&#8217;s crucial to understand the architectural flow:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>RHEL System with <code>insights-client</code></strong>: Your RHEL server or workstation runs the <code>insights-client</code> package. This client is responsible for collecting configuration, performance, and log data from your system.</p>
+</li>
+<li>
+<p><strong>Data Upload to Red Hat Insights</strong>: The <code>insights-client</code> securely uploads the collected data to the Red Hat Insights cloud platform. This platform acts as a central repository for all your registered RHEL systems' data.</p>
+</li>
+<li>
+<p><strong>Red Hat Insights Analysis</strong>: The Insights platform performs a deep analysis of the uploaded data, identifying potential issues, vulnerabilities, and optimization opportunities.</p>
+</li>
+<li>
+<p><strong>Lightspeed AI Enhancement</strong>: When Lightspeed is enabled for your Insights account, its AI engine processes the data and Insights' findings. It uses large language models (LLMs) to generate more human-readable, context-aware, and actionable remediation recommendations, often including specific <code>ansible-playbook</code> snippets.</p>
+</li>
+<li>
+<p><strong>Recommendations in Hybrid Cloud Console</strong>: The Lightspeed-enhanced recommendations are then presented to you in the Red Hat Hybrid Cloud Console (console.redhat.com), specifically within the Insights Advisor service.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This client-server model ensures that the powerful AI capabilities of Lightspeed are delivered as a service, without requiring complex local installations on each RHEL system.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_typical_deployment_stages_for_rhel_lightspeed_integration"><a class="anchor" href="#_typical_deployment_stages_for_rhel_lightspeed_integration"></a>Typical Deployment Stages for RHEL Lightspeed Integration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A typical deployment of RHEL Lightspeed capabilities involves the following stages:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>System Preparation</strong>: Ensure your RHEL system meets the basic requirements for connecting to Red Hat Insights.</p>
+</li>
+<li>
+<p><strong>Red Hat Subscription Management (RHSM) Registration</strong>: Register your RHEL system with RHSM to ensure it has valid entitlements and access to Red Hat repositories. This is a prerequisite for <code>insights-client</code> functionality.</p>
+</li>
+<li>
+<p><strong>Insights Client Installation and Configuration</strong>: Install and configure the <code>insights-client</code> package on your RHEL system. This establishes the connection to the Red Hat Insights platform.</p>
+</li>
+<li>
+<p><strong>Data Collection and Upload</strong>: The <code>insights-client</code> automatically collects data periodically and uploads it to Red Hat Insights. You can also trigger manual uploads for immediate analysis.</p>
+</li>
+<li>
+<p><strong>Lightspeed Integration &amp; Recommendation Generation</strong>: (This stage occurs on the Red Hat cloud side). Once data is processed by Insights, Lightspeed&#8217;s AI engine analyzes the findings to generate enriched recommendations.</p>
+</li>
+<li>
+<p><strong>Reviewing Lightspeed Recommendations</strong>: Access the Red Hat Hybrid Cloud Console to view and act on the AI-powered recommendations provided by Lightspeed within the Insights Advisor service.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_detailed_walkthrough_integrating_rhel_with_lightspeed_insights"><a class="anchor" href="#_detailed_walkthrough_integrating_rhel_with_lightspeed_insights"></a>Detailed Walkthrough: Integrating RHEL with Lightspeed Insights</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let&#8217;s walk through the process of preparing a RHEL system to leverage RHEL Lightspeed capabilities.</p>
+</div>
+<div class="sect2">
+<h3 id="_1_prerequisites_check"><a class="anchor" href="#_1_prerequisites_check"></a>1. Prerequisites Check</h3>
+<div class="paragraph">
+<p>Before you begin, ensure the following prerequisites are met for your RHEL system:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Supported RHEL Version</strong>: RHEL 8 or 9 (or later) is generally required for full Insights and Lightspeed functionality.</p>
+</li>
+<li>
+<p><strong>Network Connectivity</strong>: The RHEL system must have outbound internet access to <code>console.redhat.com</code> (or specific Insights endpoints) over HTTPS (port 443).</p>
+</li>
+<li>
+<p><strong>Red Hat Subscription</strong>: A valid Red Hat subscription (e.g., RHEL, Developer Subscription) associated with your Red Hat account.</p>
+</li>
+<li>
+<p><strong>Red Hat Account</strong>: Access to a Red Hat user account (login to <code>console.redhat.com</code>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_registering_with_red_hat_subscription_management_rhsm"><a class="anchor" href="#_2_registering_with_red_hat_subscription_management_rhsm"></a>2. Registering with Red Hat Subscription Management (RHSM)</h3>
+<div class="paragraph">
+<p>Your RHEL system must be registered with RHSM to obtain necessary entitlements and repository access, which <code>insights-client</code> relies on.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to your RHEL system as a user with <code>sudo</code> privileges.</p>
+</li>
+<li>
+<p>Register the system with your Red Hat account:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo subscription-manager register --username=&lt;YOUR_REDHAT_USERNAME&gt; --password=&lt;YOUR_REDHAT_PASSWORD&gt; --auto-attach</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you are using an activation key, you can register with:
+<code>sudo subscription-manager register --org=&lt;ORG_ID&gt; --activationkey=&lt;ACTIVATION_KEY&gt;</code>
+You can find your <code>ORG_ID</code> and create <code>ACTIVATION_KEY</code> in the Red Hat Hybrid Cloud Console under <strong>Settings</strong> &#8594; <strong>Activation Keys</strong>.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Verify the subscription status:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo subscription-manager status
+sudo subscription-manager list --consumed</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see "Overall Status: Current" and a valid subscription listed.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_installing_and_configuring_the_insights_client"><a class="anchor" href="#_3_installing_and_configuring_the_insights_client"></a>3. Installing and Configuring the <code>insights-client</code></h3>
+<div class="paragraph">
+<p>The <code>insights-client</code> package is the bridge between your RHEL system and Red Hat Insights.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Install <code>insights-client</code></strong>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo dnf install -y insights-client</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Register <code>insights-client</code> and Perform Initial Upload</strong>:</p>
+<div class="paragraph">
+<p>This command registers the client with the Insights platform and immediately performs an initial data collection and upload.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo insights-client --register</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will see output indicating data collection and upload progress.</p>
+</div>
+</li>
+<li>
+<p><strong>Verify <code>insights-client</code> Status</strong>:</p>
+<div class="paragraph">
+<p>The <code>insights-client</code> is designed to run automatically. You can check its service status:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo systemctl status insights-client</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It should show as <code>active (running)</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_data_collection_and_upload"><a class="anchor" href="#_4_data_collection_and_upload"></a>4. Data Collection and Upload</h3>
+<div class="paragraph">
+<p>After initial registration, <code>insights-client</code> typically runs daily to collect and upload new data.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To force an immediate data upload for testing or troubleshooting, you can run:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo insights-client --upload</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_5_accessing_red_hat_hybrid_cloud_console_and_reviewing_recommendations"><a class="anchor" href="#_5_accessing_red_hat_hybrid_cloud_console_and_reviewing_recommendations"></a>5. Accessing Red Hat Hybrid Cloud Console and Reviewing Recommendations</h3>
+<div class="paragraph">
+<p>Once your RHEL system has successfully uploaded data, you can access the Red Hat Hybrid Cloud Console to view the insights and recommendations, including those enhanced by Lightspeed.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open your web browser and navigate to: <a href="https://console.redhat.com">https://console.redhat.com</a></p>
+</li>
+<li>
+<p>Log in with your Red Hat account credentials.</p>
+</li>
+<li>
+<p>From the console&#8217;s navigation menu, select <strong>Insights</strong> &#8594; <strong>RHEL</strong> &#8594; <strong>Inventory</strong>. You should see your newly registered RHEL system listed. It might take a few minutes for the system to appear after its first upload.</p>
+</li>
+<li>
+<p>Click on your system&#8217;s hostname to view its details.</p>
+</li>
+<li>
+<p>Navigate to the <strong>Advisor</strong> service (under <strong>Services</strong> in the left-hand menu within the RHEL Insights dashboard).</p>
+</li>
+<li>
+<p>Here, you will see recommendations generated by Red Hat Insights. Look for indicators or labels that denote recommendations powered by RHEL Lightspeed. These recommendations will typically be more detailed, human-readable, and often include concrete <code>ansible-playbook</code> suggestions for remediation.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The presence of Lightspeed-powered recommendations depends on the types of issues identified on your system and the active integrations within your Insights account. While we cannot guarantee a specific Lightspeed recommendation will appear immediately on a newly registered system, the <strong>location</strong> where you would find them is within the Insights Advisor.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_troubleshooting_common_issues"><a class="anchor" href="#_troubleshooting_common_issues"></a>Troubleshooting Common Issues</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>subscription-manager</code> registration failure</strong>:</p>
+</li>
+<li>
+<p>Check your username and password.</p>
+</li>
+<li>
+<p>Ensure network connectivity to Red Hat&#8217;s subscription services.</p>
+</li>
+<li>
+<p>Verify your Red Hat account has an active subscription.</p>
+</li>
+<li>
+<p><strong><code>insights-client</code> registration or upload failure</strong>:</p>
+</li>
+<li>
+<p>Check the <code>/var/log/insights-client/insights-client.log</code> for errors.</p>
+</li>
+<li>
+<p>Ensure the system is correctly registered with <code>subscription-manager</code>.</p>
+</li>
+<li>
+<p>Verify network connectivity to <code>console.redhat.com</code>.</p>
+</li>
+<li>
+<p>Check firewall rules if outbound connections are restricted.</p>
+</li>
+<li>
+<p><strong>System not appearing in Red Hat Hybrid Cloud Console</strong>:</p>
+</li>
+<li>
+<p>Allow up to 30 minutes after the first <code>insights-client --register</code> or <code>insights-client --upload</code> for the system to appear.</p>
+</li>
+<li>
+<p>Verify that the <code>insights-client</code> service is running (<code>sudo systemctl status insights-client</code>).</p>
+</li>
+<li>
+<p>Check the <code>insights-client</code> logs for any upload errors.</p>
+</li>
+<li>
+<p><strong>No Lightspeed-specific recommendations</strong>:</p>
+</li>
+<li>
+<p>Ensure you are looking in the Insights Advisor service.</p>
+</li>
+<li>
+<p>Lightspeed provides <strong>enhanced</strong> recommendations for <strong>existing</strong> Insights findings. If your system has no significant issues, there might not be any recommendations.</p>
+</li>
+<li>
+<p>Lightspeed might be a feature that needs to be explicitly enabled or is part of a specific subscription tier for your Red Hat account. Refer to Red Hat&#8217;s official documentation for any specific Lightspeed enablement steps.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hands_on_lab_preparing_a_rhel_system_for_lightspeed_insights"><a class="anchor" href="#_hands_on_lab_preparing_a_rhel_system_for_lightspeed_insights"></a>Hands-on Lab: Preparing a RHEL System for Lightspeed Insights</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This lab guides you through the process of preparing a RHEL system to connect with Red Hat Insights, thereby making it ready to receive Lightspeed-enhanced recommendations.</p>
+</div>
+<div class="sect2">
+<h3 id="_lab_goal"><a class="anchor" href="#_lab_goal"></a>Lab Goal</h3>
+<div class="paragraph">
+<p>To successfully register a RHEL 8 or 9 system with Red Hat Subscription Management and Red Hat Insights, verify its presence in the Hybrid Cloud Console, and identify where Lightspeed-powered recommendations would appear.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scenario"><a class="anchor" href="#_scenario"></a>Scenario</h3>
+<div class="paragraph">
+<p>You are tasked with integrating a newly provisioned RHEL server into your organization&#8217;s Red Hat Insights platform to leverage AI-powered operational recommendations provided by RHEL Lightspeed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prerequisites_for_lab"><a class="anchor" href="#_prerequisites_for_lab"></a>Prerequisites for Lab</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>A running <strong>Red Hat Enterprise Linux 8 or 9</strong> virtual machine (VM) or physical server.</p>
+</li>
+<li>
+<p>The RHEL system must have <strong>internet access</strong>.</p>
+</li>
+<li>
+<p>A <strong>Red Hat user account</strong> with an active RHEL subscription.</p>
+</li>
+<li>
+<p><strong>Root or <code>sudo</code> privileges</strong> on the RHEL system.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lab_steps"><a class="anchor" href="#_lab_steps"></a>Lab Steps</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Step 1: Verify RHEL System Readiness</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Log in to your RHEL system (e.g., via SSH or console).</p>
+</li>
+<li>
+<p>Verify internet connectivity:
++
+[source,bash]
+----
+ping -c 3 google.com
+----
++
+Ensure you receive responses. If not, troubleshoot network configuration (DNS, gateway, firewall).</p>
+</li>
+<li>
+<p>Check the RHEL version:
++
+[source,bash]
+----
+cat /etc/redhat-release
+----
++
+Confirm it&#8217;s RHEL 8 or 9.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Step 2: Register with Red Hat Subscription Management (RHSM)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use your Red Hat account credentials to register the system:
++
+[source,bash]
+----
+sudo subscription-manager register --username=&lt;YOUR_REDHAT_USERNAME&gt; --password=&lt;YOUR_REDHAT_PASSWORD&gt; --auto-attach
+----
++
+Replace <code>&lt;YOUR_REDHAT_USERNAME&gt;</code> and <code>&lt;YOUR_REDHAT_PASSWORD&gt;</code> with your actual Red Hat credentials.
++
+[NOTE]
+If you encounter <code>NetworkManager is not running.</code>, restart it: <code>sudo systemctl restart NetworkManager</code>.</p>
+</li>
+<li>
+<p>Verify successful registration:
++
+[source,bash]
+----
+sudo subscription-manager status
+----
++
+The "Overall Status" should be <code>Current</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Step 3: Install the <code>insights-client</code> Package</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Install the client:
++
+[source,bash]
+----
+sudo dnf install -y insights-client
+----</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Step 4: Register <code>insights-client</code> and Perform Initial Upload</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This command registers the client with Red Hat Insights and initiates the first data collection and upload.
++
+[source,bash]
+----
+sudo insights-client --register
+----</p>
+</li>
+<li>
+<p>Wait for the process to complete. You&#8217;ll see output indicating data collection and upload status.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Step 5: Verify <code>insights-client</code> Service Status</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Check if the <code>insights-client</code> service is running:
++
+[source,bash]
+----
+sudo systemctl status insights-client
+----
++
+It should show <code>active (running)</code>. If not, start it with <code>sudo systemctl start insights-client</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Step 6: Access Red Hat Hybrid Cloud Console</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Open your web browser and navigate to: <a href="https://console.redhat.com">https://console.redhat.com</a></p>
+</li>
+<li>
+<p>Log in with the same Red Hat account you used for <code>subscription-manager</code> registration.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Step 7: Verify System in Insights Inventory</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>From the main navigation, go to <strong>Insights</strong> &#8594; <strong>RHEL</strong> &#8594; <strong>Inventory</strong>.</p>
+</li>
+<li>
+<p>Look for your RHEL system&#8217;s hostname in the list. It might take a few minutes (up to 30) for it to appear after the initial upload. Refresh the page if needed.</p>
+</li>
+<li>
+<p>Click on your system&#8217;s hostname to view its overview page.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Step 8: Explore Insights Advisor for Lightspeed Recommendations</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>On your system&#8217;s overview page within the Hybrid Cloud Console, navigate to the <strong>Advisor</strong> service (usually found in the left-hand menu under <strong>Services</strong>).</p>
+</li>
+<li>
+<p>Review the recommendations listed.
++
+[TIP]
+While a new system might not immediately show Lightspeed-specific recommendations, this is the area where they would appear. Look for indicators such as "Lightspeed" badges or explicitly AI-generated remediation playbooks. As your system runs and gathers more data, and if it encounters common issues, Lightspeed-enhanced recommendations become more likely to surface.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lab_verification"><a class="anchor" href="#_lab_verification"></a>Lab Verification</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Your RHEL system successfully registered with Red Hat Subscription Management.</p>
+</li>
+<li>
+<p>The <code>insights-client</code> is installed, registered, and running on your RHEL system.</p>
+</li>
+<li>
+<p>Your RHEL system&#8217;s hostname appears in the Red Hat Hybrid Cloud Console under <strong>Insights</strong> &#8594; <strong>RHEL</strong> &#8594; <strong>Inventory</strong>.</p>
+</li>
+<li>
+<p>You have navigated to the <strong>Advisor</strong> service within the console and understand where Lightspeed-powered recommendations would be presented.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="sample-deployment.html">Sample Deployment</a></span>
+  <span class="next"><a href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+* xref:business-use-cases-for-rhel-lightspeed.adoc[]
+** xref:understanding-the-benefits-of-rhel-lightspeed-for-businesses.adoc[]
+** xref:exploring-how-rhel-lightspeed-enhances-security-and-compliance.adoc[]
+** xref:identifying-key-business-scenarios-for-rhel-lightspeed-adoption.adoc[]

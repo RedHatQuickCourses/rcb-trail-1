@@ -1,6 +1,6 @@
 site:
-  title: FIXME Course Title
-  start_page: REPLACEREPONAME::index.adoc
+  title:  RHEL Lightspeed Course Outline
+  start_page: rcb-trail-1::index.adoc
 
 content:
   sources:

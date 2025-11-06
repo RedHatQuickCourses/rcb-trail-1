@@ -1,0 +1,3 @@
+#  Sample Deployment
+
+A Sample Deployment provides a practical, guided experience for understanding RHEL Lightspeed implementation. It includes a walkthrough of a typical deployment scenario, illustrating the end-to-end process. Learners engage in a hands-on lab to deploy RHEL Lightspeed within a controlled environment. This section also covers essential post-deployment verification steps and common troubleshooting techniques. This practical application solidifies understanding of the setup and operational aspects.

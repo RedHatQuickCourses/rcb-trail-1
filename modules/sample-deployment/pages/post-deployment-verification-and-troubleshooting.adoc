@@ -1,0 +1,377 @@
+#  Post-deployment verification and troubleshooting
+
+= Post-deployment Verification and Troubleshooting
+
+After successfully deploying RHEL Lightspeed, performing thorough post-deployment verification is crucial to ensure that all components are functioning as expected and that your systems are properly integrated with Red Hat's cloud services. This process helps confirm the health, connectivity, and operational readiness of your RHEL Lightspeed setup. Should any issues arise, understanding common troubleshooting techniques will enable you to quickly diagnose and resolve problems, ensuring you can leverage the full potential of RHEL Lightspeed for enhanced security, compliance, and operational efficiency.
+
+== Verifying RHEL Lightspeed Deployment
+
+Post-deployment verification involves a series of checks to confirm the RHEL Lightspeed agent is installed, running, connected, and reporting data correctly.
+
+=== Step 1: Confirm RHEL Lightspeed Agent Service Status
+
+The RHEL Lightspeed agent runs as a systemd service. The first step is to ensure this service is active and running without errors.
+
+.Technical Explanation
+The `rhel-lightspeed` service manages the interaction between your RHEL system and Red Hat's cloud services, including sending diagnostic data and receiving recommendations. A healthy service status indicates the agent is operational.
+
+.Verification Command
+To check the service status, use the `systemctl` command:
+
+```bash
+sudo systemctl status rhel-lightspeed
+```
+
+.Expected Output
+A healthy output should show `Active: active (running)`:
+
+```
+● rhel-lightspeed.service - RHEL Lightspeed agent
+     Loaded: loaded (/usr/lib/systemd/system/rhel-lightspeed.service; enabled; vendor preset: disabled)
+     Active: active (running) since Thu 2024-07-25 10:00:00 UTC; 5min ago
+   Main PID: 12345 (rhel-lightspeed)
+      Tasks: 10 (limit: 49152)
+     Memory: 25.6M
+        CPU: 1.250s
+     CGroup: /system.slice/rhel-lightspeed.service
+             └─12345 /usr/bin/python3 -m rhel_lightspeed.agent
+...
+```
+
+=== Step 2: Verify System Registration
+
+RHEL Lightspeed relies on your system being correctly registered with Red Hat Subscription Management (RHSM) and connected to Red Hat Insights. This ensures the system is recognized and entitled to send data.
+
+.Technical Explanation
+The `subscription-manager` utility handles system registration, attaching subscriptions, and connecting to Red Hat's content delivery network and cloud services. `ssmutil` provides additional utilities for managing Insights connectivity.
+
+.Verification Commands
+To check registration status and Insights connection:
+
+```bash
+sudo subscription-manager status
+sudo ssmutil get-upload-status
+```
+
+.Expected Output
+For `subscription-manager status`:
+
+```
++-------------------------------------------+
+   System Status Details
++-------------------------------------------+
+Overall Status: Current
+```
+
+For `ssmutil get-upload-status`:
+
+```
+Insights upload success: True
+```
+
+=== Step 3: Check Connectivity to Red Hat Insights Endpoints
+
+The RHEL Lightspeed agent needs to communicate with specific Red Hat Insights endpoints over HTTPS. Firewall rules, proxy settings, or network issues can prevent this.
+
+.Technical Explanation
+The agent primarily communicates with `cert-api.access.redhat.com` (for certificates), `subscription.rhsm.redhat.com` (for subscription data), and `cloud.redhat.com` (for Insights data upload). Direct network connectivity is essential.
+
+.Verification Commands
+You can use `curl` to test connectivity to key endpoints. Replace `proxy.example.com:8080` with your actual proxy if applicable.
+
+```bash
+# Test connectivity to Insights upload endpoint
+curl -v https://cloud.redhat.com/api/insights/v1/ping
+
+# Test connectivity to subscription service
+curl -v https://subscription.rhsm.redhat.com/subscription
+
+# Test connectivity to certificate service
+curl -v https://cert-api.access.redhat.com/
+```
+
+If you are using a proxy, you might need to specify it:
+
+```bash
+export https_proxy="http://proxy.example.com:8080"
+curl -v https://cloud.redhat.com/api/insights/v1/ping
+```
+
+.Expected Output
+A successful `curl` command should return an HTTP 200 OK status or similar indication of connection. Look for `* Connected to cloud.redhat.com` and `HTTP/1.1 200 OK` or `HTTP/1.1 401 Unauthorized` (which indicates server reachability, but perhaps an authentication issue, not a connectivity issue).
+
+=== Step 4: Validate Initial Insights and Recommendations
+
+After successful deployment and data upload, your RHEL Lightspeed recommendations should begin appearing in the Red Hat Hybrid Cloud Console.
+
+.Technical Explanation
+It can take some time (typically 15-30 minutes for initial data, then hourly updates) for data to be processed and recommendations to appear in the Red Hat Hybrid Cloud Console (console.redhat.com).
+
+.Verification Steps
+1.  Open your web browser and navigate to `https://console.redhat.com/insights/`.
+2.  Log in with your Red Hat account.
+3.  Navigate to the **Red Hat Insights** dashboard.
+4.  Look for your registered RHEL system in the inventory.
+5.  Check for generated recommendations or "actions" related to your system.
+
+.Expected Outcome
+Your deployed RHEL system should appear in the Red Hat Insights inventory, and after a short delay, you should start seeing RHEL Lightspeed-generated recommendations based on its analysis.
+
+=== Step 5: Review RHEL Lightspeed Log Files
+
+Log files are invaluable for diagnosing any issues that are not immediately apparent.
+
+.Technical Explanation
+The RHEL Lightspeed agent logs its activities and any errors to the system journal. Reviewing these logs can provide detailed information about connectivity, data processing, and potential failures.
+
+.Verification Command
+To view the logs for the `rhel-lightspeed` service:
+
+```bash
+sudo journalctl -u rhel-lightspeed --since "5 minutes ago"
+```
+
+To view the full logs and search for errors:
+
+```bash
+sudo journalctl -u rhel-lightspeed | less -p "ERROR|WARN|FAIL"
+```
+
+.Expected Output
+Look for messages indicating successful data uploads, processing, or any `ERROR` or `WARNING` messages that might point to a problem.
+
+== Troubleshooting Common RHEL Lightspeed Issues
+
+Even with careful deployment, issues can arise. Here's how to approach common troubleshooting scenarios.
+
+=== Issue 1: RHEL Lightspeed Agent Service Not Running
+
+If `sudo systemctl status rhel-lightspeed` shows the service as `inactive` or `failed`.
+
+.Technical Explanation
+This indicates a problem with the agent's startup or continued operation. It could be due to configuration errors, missing dependencies, or resource constraints.
+
+.Troubleshooting Steps
+1.  **Check Service Status and Logs:**
+    ```bash
+    sudo systemctl status rhel-lightspeed -l --no-pager
+    sudo journalctl -u rhel-lightspeed --since "1 hour ago" -e
+    ```
+    Look for specific error messages.
+2.  **Attempt to Start/Restart:**
+    ```bash
+    sudo systemctl restart rhel-lightspeed
+    sudo systemctl status rhel-lightspeed
+    ```
+3.  **Check Configuration:** Ensure the configuration file (if any specific to Lightspeed is used, or default) is syntactically correct and permissions are set. While Lightspeed typically uses default Insights configuration, custom setups might exist.
+4.  **Resource Availability:** Ensure the system has sufficient memory and CPU.
+
+=== Issue 2: System Not Reporting to Red Hat Insights
+
+`sudo ssmutil get-upload-status` shows `Insights upload success: False`, or the system doesn't appear in `console.redhat.com/insights/inventory`.
+
+.Technical Explanation
+This typically points to network connectivity problems, firewall blocks, proxy misconfigurations, or issues with system registration/entitlement.
+
+.Troubleshooting Steps
+1.  **Verify System Registration:**
+    ```bash
+    sudo subscription-manager status
+    sudo subscription-manager identity
+    ```
+    Ensure the system is registered and has an active subscription. If not, re-register:
+    ```bash
+    sudo subscription-manager unregister
+    sudo subscription-manager clean
+    sudo subscription-manager register --username=<your_redhat_username> --password=<your_redhat_password> --auto-attach
+    ```
+2.  **Check Network Connectivity (refer to Step 3 of Verification):** Use `curl` to test connectivity to `cert-api.access.redhat.com`, `subscription.rhsm.redhat.com`, and `cloud.redhat.com`.
+3.  **Firewall Configuration:** Ensure outbound HTTPS (port 443) traffic is allowed to Red Hat's domains.
+    ```bash
+    sudo firewall-cmd --list-all
+    ```
+    If using `firewalld`, you might need to add rules. For example:
+    ```bash
+    sudo firewall-cmd --permanent --zone=public --add-service=https
+    sudo firewall-cmd --reload
+    ```
+4.  **Proxy Configuration:** If your environment uses a proxy, ensure it's correctly configured for the RHEL Lightspeed agent. Proxy settings are typically handled by `ssmutil` or environment variables for `rhsm-sat-migrator` if used. For general system-wide proxy settings, refer to `/etc/profile.d/proxy.sh` or `/etc/yum.repos.d/*.repo` files. For Insights specifically, check `ssmutil` options or ensure `http_proxy`/`https_proxy` environment variables are set before running registration/upload commands.
+    ```bash
+    sudo ssmutil get-system-proxy
+    ```
+    You may need to configure proxy settings via `subscription-manager config`.
+
+=== Issue 3: No RHEL Lightspeed Recommendations Appearing
+
+The system is registered, reporting to Insights, but no specific RHEL Lightspeed recommendations are shown after a reasonable delay.
+
+.Technical Explanation
+This could be due to data processing delays, specific content policies preventing recommendations, or the system not yet generating relevant insights that Lightspeed can act upon.
+
+.Troubleshooting Steps
+1.  **Wait for Data Processing:** Allow at least 30-60 minutes after initial successful upload for data to be processed and recommendations to appear.
+2.  **Check Red Hat Insights Policies:** In the Red Hat Hybrid Cloud Console, navigate to Insights policies. Ensure no policies are inadvertently filtering out or suppressing RHEL Lightspeed recommendations.
+3.  **Review System Activity:** Check the system's compliance and vulnerability reports within Insights. If there are no issues detected by standard Insights, Lightspeed might not have additional recommendations to provide immediately.
+4.  **Verify Lightspeed is Active:** Ensure your Red Hat account is entitled to RHEL Lightspeed and that the feature is generally available and active for your organization.
+
+=== Issue 4: Authentication or Authorization Errors
+
+Errors related to credentials, permissions, or access when attempting to register or upload data.
+
+.Technical Explanation
+These errors mean the system or user doesn't have the necessary rights to perform an action. This could be incorrect Red Hat credentials, expired subscriptions, or insufficient permissions on the Red Hat account.
+
+.Troubleshooting Steps
+1.  **Verify Red Hat Account Credentials:** Double-check the username and password used for `subscription-manager register`.
+2.  **Check Subscription Status:** Confirm that your Red Hat account has an active and valid RHEL subscription. Log in to `access.redhat.com` and check your subscriptions.
+3.  **Review Account Permissions:** Ensure the Red Hat account has the necessary permissions within the organization to register systems and utilize Insights/Lightspeed services.
+4.  **Renew Certificates:** If certificates are expired, it can cause authentication issues.
+    ```bash
+    sudo subscription-manager refresh
+    ```
+
+=== Issue 5: Network and Firewall Configuration Problems
+
+Specific errors mentioning connection refused, timeouts, or SSL/TLS handshake failures.
+
+.Technical Explanation
+These are classic network issues. They indicate that the RHEL Lightspeed agent cannot establish a secure connection to Red Hat's servers.
+
+.Troubleshooting Steps
+1.  **Local Firewall:**
+    ```bash
+    sudo firewall-cmd --list-all
+    ```
+    Ensure outbound HTTPS (port 443) is allowed. Temporarily disable the firewall for testing if necessary (but *never* in production without understanding the risks):
+    ```bash
+    sudo systemctl stop firewalld
+    # Test connectivity
+    sudo systemctl start firewalld
+    ```
+2.  **Corporate Firewall/Proxy:** If you're behind a corporate firewall, ensure it's configured to allow outbound HTTPS traffic to Red Hat domains. Contact your network administrator.
+3.  **SELinux:** While less common for Lightspeed, SELinux can sometimes block network access for specific services.
+    ```bash
+    sudo audit2allow -a
+    ```
+    Look for relevant AVC denials.
+4.  **DNS Resolution:** Ensure the system can resolve Red Hat's hostnames:
+    ```bash
+    dig cloud.redhat.com
+    ```
+    Verify the output shows correct IP addresses.
+
+== Lab: Post-deployment Verification and Basic Troubleshooting
+
+This lab guides you through verifying your RHEL Lightspeed deployment and practicing basic troubleshooting techniques.
+
+[NOTE]
+====
+This lab assumes you have successfully completed the "Deploying RHEL Lightspeed in a controlled environment" lab and have a deployed RHEL Lightspeed instance ready for verification. You will need `sudo` privileges on the RHEL system.
+====
+
+=== Activity 1: Verifying RHEL Lightspeed Agent Status and Registration
+
+In this activity, you will confirm that the RHEL Lightspeed agent service is running and that your system is correctly registered with Red Hat Insights.
+
+.Steps
+.  **Open a terminal** on your RHEL system where RHEL Lightspeed was deployed.
+
+.  **Check the RHEL Lightspeed agent service status:**
+    ```bash
+    sudo systemctl status rhel-lightspeed
+    ```
+    *   **Expected Outcome:** The output should show `Active: active (running)`.
+    *   **Troubleshooting:** If it's `inactive` or `failed`, proceed to the troubleshooting steps in "Issue 1: RHEL Lightspeed Agent Service Not Running" above, paying close attention to the `journalctl` output for error messages. Attempt to restart the service using `sudo systemctl restart rhel-lightspeed`.
+
+.  **Verify system registration with Red Hat Subscription Management:**
+    ```bash
+    sudo subscription-manager status
+    ```
+    *   **Expected Outcome:** The `Overall Status` should be `Current`.
+
+.  **Confirm Insights upload status:**
+    ```bash
+    sudo ssmutil get-upload-status
+    ```
+    *   **Expected Outcome:** `Insights upload success: True`.
+    *   **Troubleshooting:** If either registration status is not `Current` or upload status is `False`, refer to "Issue 2: System Not Reporting to Red Hat Insights" for steps to re-register or diagnose connectivity.
+
+=== Activity 2: Confirming Red Hat Insights Connectivity
+
+This activity verifies that your RHEL system can communicate with the necessary Red Hat Insights endpoints.
+
+.Steps
+.  **Test connectivity to Red Hat's certificate API endpoint:**
+    ```bash
+    curl -v https://cert-api.access.redhat.com/
+    ```
+    *   **Expected Outcome:** Look for `* Connected to cert-api.access.redhat.com` and an `HTTP/1.1 200 OK` status, or similar success.
+
+.  **Test connectivity to Red Hat's Insights upload endpoint:**
+    ```bash
+    curl -v https://cloud.redhat.com/api/insights/v1/ping
+    ```
+    *   **Expected Outcome:** Look for `* Connected to cloud.redhat.com` and an `HTTP/1.1 200 OK` or `HTTP/1.1 401 Unauthorized` (the latter indicates connectivity, but not necessarily valid auth).
+    *   **Troubleshooting:** If these `curl` commands fail (e.g., `Failed to connect`, `Connection refused`, `SSL handshake failed`), check your network configuration, proxy settings, and firewall rules. Refer to "Issue 2: System Not Reporting to Red Hat Insights" and "Issue 5: Network and Firewall Configuration Problems" for detailed troubleshooting.
+
+.  **Verify system presence and recommendations in Red Hat Hybrid Cloud Console:**
+    *   Open your web browser and go to `https://console.redhat.com/insights/`.
+    *   Log in with your Red Hat account.
+    *   Navigate to **Red Hat Insights** -> **Inventory** and locate your RHEL system.
+    *   Check for any generated recommendations or "actions" for your system, potentially including RHEL Lightspeed specific ones.
+    *   **Expected Outcome:** Your system should be listed, and after some time (up to 30-60 minutes), recommendations should start to appear.
+
+=== Activity 3: Reviewing RHEL Lightspeed Logs for Anomalies
+
+Understanding how to review logs is crucial for advanced troubleshooting.
+
+.Steps
+.  **View recent RHEL Lightspeed agent logs:**
+    ```bash
+    sudo journalctl -u rhel-lightspeed --since "30 minutes ago" -e
+    ```
+    *   **Observe:** Look for messages indicating successful operations, data uploads, or any errors or warnings. Pay attention to timestamps.
+
+.  **Search for error messages within the logs:**
+    ```bash
+    sudo journalctl -u rhel-lightspeed | grep -i "ERROR\|FAIL\|WARN"
+    ```
+    *   **Observe:** If any errors or warnings appear, these are key indicators of problems. Note down the specific messages and timestamps. This information is vital for further diagnosis or when seeking support.
+
+=== Activity 4: Simulating and Troubleshooting a Connectivity Issue (Optional, Advanced)
+
+This activity provides a hands-on experience in diagnosing a common connectivity problem.
+
+.Steps
+.  **(Simulation Step - DO NOT perform in a production environment):** Intentionally block outbound HTTPS traffic for a short period to simulate a firewall issue.
+    ```bash
+    # This example blocks all outbound port 443 traffic using iptables.
+    # ONLY do this in a controlled lab environment.
+    sudo iptables -A OUTPUT -p tcp --dport 443 -j DROP
+    ```
+
+.  **Attempt to trigger an Insights upload or restart the Lightspeed service:**
+    ```bash
+    sudo systemctl restart rhel-lightspeed
+    sudo ssmutil upload
+    ```
+    *   **Expected Outcome:** The `ssmutil upload` command should likely fail or time out. The Lightspeed service might report errors in its logs.
+
+.  **Diagnose the issue using verification techniques:**
+    *   Run `sudo systemctl status rhel-lightspeed` and `sudo journalctl -u rhel-lightspeed` to see if there are new error messages related to connectivity.
+    *   Attempt `curl -v https://cloud.redhat.com/api/insights/v1/ping` again. It should fail.
+
+.  **Resolve the simulated issue:**
+    ```bash
+    # Remove the iptables rule. Adjust if you used a different method to block.
+    sudo iptables -D OUTPUT -p tcp --dport 443 -j DROP
+    ```
+
+.  **Verify resolution:**
+    *   Run `sudo systemctl restart rhel-lightspeed`.
+    *   Run `sudo ssmutil upload`.
+    *   Run `curl -v https://cloud.redhat.com/api/insights/v1/ping`.
+    *   Check `sudo journalctl -u rhel-lightspeed` for successful messages.
+    *   **Expected Outcome:** All verification steps should now succeed, and error messages should no longer appear in the logs.
+
+By completing these verification and troubleshooting activities, you gain practical experience in ensuring your RHEL Lightspeed deployment is healthy and in resolving common operational issues.

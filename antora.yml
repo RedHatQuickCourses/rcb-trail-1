@@ -1,10 +1,16 @@
-name: REPLACEREPONAME
-title: FIXME Course Title
-version: 1
+name: rcb-trail-1
+title:  RHEL Lightspeed Course Outline
+version: 1.0.0
 nav:
 - modules/ROOT/nav.adoc
 - modules/LABENV/nav.adoc
-- modules/chapter1/nav.adoc
-- modules/chapter2/nav.adoc
-- modules/chapter3/nav.adoc
+
+- modules/business-use-cases-for-rhel-lightspeed/nav.adoc
+
+- modules/adoption-for-existing-rhel-customersusers/nav.adoc
+
+- modules/setting-up-rhel-lightspeed/nav.adoc
+
+- modules/sample-deployment/nav.adoc
+
 - modules/appendix/nav.adoc

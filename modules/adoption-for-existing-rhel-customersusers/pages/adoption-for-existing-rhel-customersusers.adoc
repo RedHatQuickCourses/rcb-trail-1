@@ -1,0 +1,3 @@
+#  Adoption for Existing RHEL Customers/Users
+
+Understanding the adoption process for existing RHEL users transitioning to RHEL Lightspeed is crucial for a smooth upgrade. This involves evaluating the shift from traditional RHEL environments to the enhanced capabilities of RHEL Lightspeed. A key aspect is assessing the impact on current workflows and systems to anticipate any potential disruptions. Developing effective strategies for seamless integration and migration is essential to ensure business continuity. This module provides insights and best practices for existing RHEL customers to successfully adopt RHEL Lightspeed.

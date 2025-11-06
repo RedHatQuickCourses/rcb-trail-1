@@ -1,0 +1,223 @@
+#  Step-by-step guide for RHEL Lightspeed setup
+
+Here's the detailed content for "Step-by-step guide for RHEL Lightspeed setup" in Antora AsciiDoc format:
+
+```asciidoc
+= Setting Up RHEL Lightspeed: A Step-by-Step Guide
+
+This guide provides a comprehensive, step-by-step walkthrough for setting up RHEL Lightspeed on your Red Hat Enterprise Linux systems. We'll cover the necessary preparations, installation procedures, and initial configuration to get you started with this powerful AI-assisted capability.
+
+== Understanding the Setup Flow
+
+Before diving into the commands, it's helpful to understand the general flow of a RHEL Lightspeed setup:
+
+.  **Prerequisites Verification**: Ensure your system meets all hardware, software, and subscription requirements.
+.  **Subscription Attachment**: Confirm your RHEL system is correctly registered and has an active Red Hat subscription that includes RHEL Lightspeed access.
+.  **Repository Management**: Enable the necessary Red Hat repositories that contain the RHEL Lightspeed packages.
+.  **Package Installation**: Install the core RHEL Lightspeed client components.
+.  **Configuration**: Perform any initial configuration, which might include authentication with Red Hat services or local settings.
+.  **Verification**: Confirm that RHEL Lightspeed is correctly installed and operational.
+
+== Step 1: Verify Prerequisites
+
+While a dedicated section covers prerequisites, it's crucial to quickly re-verify them before proceeding with installation.
+
+IMPORTANT: Ensure you have read and understood the full prerequisites outlined in xref:rhel-lightspeed-prerequisites.adoc[Prerequisites for RHEL Lightspeed Installation] before continuing.
+
+Key prerequisites to confirm:
+
+*   **Supported RHEL Version**: Your RHEL system must be running a supported version (e.g., RHEL 8.8+ or RHEL 9.2+).
+*   **Active Red Hat Subscription**: A valid Red Hat subscription that includes RHEL Lightspeed access is mandatory. This is typically included with specific RHEL subscriptions or as an add-on.
+*   **Internet Connectivity**: The RHEL system requires outbound internet access to connect to Red Hat's content delivery network (CDN) for packages and to Red Hat Insights/Lightspeed services.
+*   **User Permissions**: You'll need `root` privileges or `sudo` access to perform installation and configuration tasks.
+
+=== Hands-on Activity: Confirm RHEL Version and Subscription
+
+Let's quickly check your system's version and subscription status.
+
+.  **Log in to your RHEL system**:
+   Connect via SSH or directly to your RHEL instance.
+
+.  **Check RHEL version**:
+   [source,bash]
+   ----
+   cat /etc/redhat-release
+   sudo subscription-manager release --show
+   ----
+   *Expected Output Example:*
+   [source]
+   ----
+   Red Hat Enterprise Linux release 9.2 (Plow)
+   Release: 9.2
+   ----
+   Ensure the release matches a supported RHEL Lightspeed version.
+
+.  **Check subscription status**:
+   [source,bash]
+   ----
+   sudo subscription-manager status
+   ----
+   *Expected Output Example:*
+   [source]
+   ----
+   +-------------------------------------------+
+      System Status Details
+   +-------------------------------------------+
+   Overall Status: Current
+   ----
+   If the status is not `Current`, you need to register your system and attach a valid subscription. Refer to Red Hat documentation for `subscription-manager` if needed.
+
+== Step 2: Enable RHEL Lightspeed Repository
+
+RHEL Lightspeed components are typically delivered through specific Red Hat repositories. You need to ensure these repositories are enabled on your system.
+
+NOTE: The exact repository names might vary slightly based on your RHEL version and specific subscription. The commands below are typical for RHEL 8 and 9.
+
+.  **List available repositories**:
+   It's good practice to see what repositories are currently enabled.
+   [source,bash]
+   ----
+   sudo dnf repolist
+   ----
+
+.  **Enable the RHEL Lightspeed repository**:
+   The RHEL Lightspeed content is often found in the "Ansible Automation Platform" repository or a similar supplementary channel.
+   [source,bash]
+   ----
+   sudo subscription-manager repos --enable=rhel-9-for-x86_64-appstream-rpms \
+                                  --enable=ansible-automation-platform-2.4-for-rhel-9-x86_64-rpms \
+                                  --enable=rhel-9-for-x86_64-baseos-rpms # (Ensure baseos is enabled if not already)
+   ----
+   Replace `rhel-9` with `rhel-8` if you are on RHEL 8. The `ansible-automation-platform` repository usually contains the necessary components for AI-assisted automation.
+
+   If you're unsure about the exact repository name for Lightspeed, you can search for available repositories:
+   [source,bash]
+   ----
+   sudo subscription-manager repos --list | grep -i lightspeed
+   sudo subscription-manager repos --list | grep -i ansible
+   ----
+   Once you identify the correct repository, enable it using `sudo subscription-manager repos --enable=<repo_id>`.
+
+.  **Verify enabled repositories**:
+   After enabling, confirm the new repositories are listed.
+   [source,bash]
+   ----
+   sudo dnf repolist | grep -i ansible
+   ----
+   You should see the `ansible-automation-platform` repository listed as enabled.
+
+== Step 3: Install RHEL Lightspeed Client Components
+
+With the correct repositories enabled, you can now install the necessary packages. RHEL Lightspeed integration is often delivered as a plugin or component within existing Red Hat tools, particularly those related to Ansible Automation Platform.
+
+.  **Install the Lightspeed-related packages**:
+   The primary package for Lightspeed integration is often `ansible-lint` along with its dependencies, which leverage the Lightspeed service.
+   [source,bash]
+   ----
+   sudo dnf install -y ansible-lint
+   ----
+   This command installs `ansible-lint`, which, when configured, can interact with the RHEL Lightspeed service for content generation and recommendations. The `python3-ansible-builder` or similar packages might also be relevant depending on the exact RHEL Lightspeed offering.
+
+NOTE: RHEL Lightspeed is not a single daemon or service that runs persistently on your RHEL system in the same way `httpd` or `sshd` does. Instead, it's an intelligent service accessed by *client tools* (like `ansible-lint`, `vscode-ansible` extension, etc.) which connect to the Red Hat Lightspeed API hosted in the cloud. The installation here focuses on getting these client tools ready on your RHEL system.
+
+== Step 4: Configure RHEL Lightspeed Access
+
+After installing the client tools, you need to configure them to interact with the RHEL Lightspeed API. This typically involves authenticating with your Red Hat account.
+
+.  **Generate a Red Hat API Token**:
+   RHEL Lightspeed uses API tokens for authentication. You will need to generate one from the Red Hat Hybrid Cloud Console.
+   *   Navigate to the Red Hat Hybrid Cloud Console: link:https://console.redhat.com[console.redhat.com^].
+   *   Log in with your Red Hat account.
+   *   Go to *User preferences* (usually by clicking on your username in the top right corner) -> *Integrations* -> *API Tokens*.
+   *   Generate a new token. Ensure you copy it immediately, as it will only be shown once.
+
+.  **Configure `ansible-lint` to use RHEL Lightspeed**:
+   The `ansible-lint` tool can be configured to use the Lightspeed service. This is often done by setting environment variables or by using a configuration file.
+
+   *   **Using Environment Variables (Temporary/Testing)**:
+      [source,bash]
+      ----
+      export ANSIBLE_GENERATIVE_AI_URL="https://ansible-ai-prod.redhat.com/api"
+      export ANSIBLE_GENERATIVE_AI_TOKEN="<YOUR_RED_HAT_API_TOKEN>" # Replace with your actual token
+      ----
+      This sets the environment variables for your current shell session.
+
+   *   **Using `ansible-lint` configuration file (Recommended for persistent use)**:
+      Create or edit the `~/.ansible-lint` configuration file (or a project-specific `.ansible-lint` file).
+      [source,yaml]
+      ----
+      # ~/.ansible-lint
+      rules:
+        # Enable rules that interact with Lightspeed
+        # Example: Enable rules for content generation, if available in your version
+      ai:
+        url: https://ansible-ai-prod.redhat.com/api
+        token: <YOUR_RED_HAT_API_TOKEN> # Replace with your actual token
+      # Other ansible-lint configurations...
+      ----
+      Replace `<YOUR_RED_HAT_API_TOKEN>` with the token you generated.
+
+IMPORTANT: Treat your API token as a sensitive credential. Do not commit it to version control or expose it publicly. For multi-user environments or automation, consider using a secret management solution like HashiCorp Vault or Ansible Vault to store and inject these tokens securely.
+
+== Step 5: Verification and First Use
+
+Now that everything is set up, let's verify that RHEL Lightspeed integration is working.
+
+=== Hands-on Activity: Verify Lightspeed with `ansible-lint`
+
+We'll use `ansible-lint` with a simple Ansible playbook to demonstrate Lightspeed's capabilities.
+
+.  **Create a sample Ansible playbook**:
+   Create a file named `my_playbook.yml` with some basic tasks. We'll intentionally leave a task incomplete to see Lightspeed's suggestions.
+   [source,yaml]
+   ----
+   # my_playbook.yml
+   ---
+   - name: Manage web server
+     hosts: webservers
+     become: yes
+     tasks:
+       - name: Ensure httpd is installed
+         ansible.builtin.yum:
+           name: httpd
+           state: present
+       - name: Start and enable httpd service
+         ansible.builtin.service:
+           name: httpd
+           state: started
+           enabled: yes
+       - name: Configure firewall for httpd
+         # Lightspeed should suggest how to add firewall rules
+         # Add your firewall configuration here
+   ----
+
+.  **Run `ansible-lint` with Lightspeed integration**:
+   Ensure your environment variables for `ANSIBLE_GENERATIVE_AI_URL` and `ANSIBLE_GENERATIVE_AI_TOKEN` are set, or that your `~/.ansible-lint` file is configured.
+   [source,bash]
+   ----
+   ansible-lint my_playbook.yml --fix
+   ----
+   The `--fix` flag (or similar, depending on the `ansible-lint` version and specific Lightspeed integration rules) might attempt to apply suggestions. For direct content generation, you might use a different command or interact through an IDE plugin.
+
+   *Expected Output (Illustrative)*:
+   If Lightspeed is correctly configured and invoked by `ansible-lint`, you might see output similar to this, indicating suggestions for the incomplete task:
+   [source]
+   ----
+   ...
+   Rule 205 (firewall_rule_suggestion): Consider adding firewall rules for httpd.
+       # Lightspeed generated suggestion:
+       - name: Ensure httpd port is open in firewall
+         ansible.posix.firewalld:
+           service: httpd
+           permanent: yes
+           state: enabled
+           immediate: yes
+   ...
+   ----
+   This indicates that RHEL Lightspeed has analyzed your playbook and provided context-aware suggestions for completing the firewall task.
+
+.  **Experiment with new playbooks**:
+   Try creating a new, empty `my_new_playbook.yml` and use your editor's Ansible extension (if it integrates with Lightspeed, like VS Code's Red Hat Ansible extension) or `ansible-lint` commands designed for content generation to request new tasks.
+
+Congratulations! You have successfully set up RHEL Lightspeed client components and configured them to interact with the Red Hat Lightspeed API. You can now leverage AI-assisted content generation and recommendations to streamline your Ansible automation development.
+```

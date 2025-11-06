@@ -1,0 +1,180 @@
+#  Prerequisites for RHEL Lightspeed installation
+
+= Prerequisites for RHEL Lightspeed Installation
+
+:navtitle: Prerequisites
+
+Understanding and fulfilling the prerequisites is crucial for a smooth RHEL Lightspeed installation. This section details the necessary system, network, subscription, and software requirements, along with recommended best practices, to ensure your environment is fully prepared.
+
+== System Requirements
+
+RHEL Lightspeed, like any advanced service, relies on a robust underlying operating system. Meeting these specifications ensures optimal performance and stability.
+
+*   **Operating System:** Red Hat Enterprise Linux (RHEL) 8.x or RHEL 9.x.
+    *   It is highly recommended to use the latest minor version of RHEL within your chosen major release for improved stability, security patches, and access to the newest features.
+    *   Ensure your RHEL host is fully updated to prevent compatibility issues.
+*   **CPU:** Minimum of 2 vCPU.
+    *   For production environments or heavier workloads, consider 4 vCPU or more to handle concurrent requests and processing.
+*   **RAM:** Minimum of 4 GB RAM.
+    *   Production deployments may benefit from 8 GB RAM or more, especially if other services are co-located or if you anticipate extensive use.
+*   **Disk Space:** Minimum of 20 GB free disk space.
+    *   This space is required for installation files, container images, temporary data, and system logs.
+    *   *Recommendation:* For production use, consider allocating a separate logical volume or partition for RHEL Lightspeed data to facilitate easier management, backups, and to prevent root partition exhaustion.
+*   **Architecture:** x86_64 compatible system.
+
+=== Hands-on Activity: Verifying System Specifications
+
+Before proceeding with the installation, let's verify that your RHEL system meets the fundamental requirements.
+
+. Log in to your RHEL host using an SSH client or directly from the console.
+. Check the RHEL version to confirm it's RHEL 8.x or 9.x.
++
+[source,bash]
+----
+cat /etc/redhat-release
+sudo dnf update --refresh
+----
++
+The `sudo dnf update --refresh` command ensures your system's package metadata is up-to-date and prompts you to apply any pending system updates.
+
+. Verify the number of CPU cores available to the system.
++
+[source,bash]
+----
+nproc
+----
+
+. Check the total and available RAM.
++
+[source,bash]
+----
+free -h
+----
+
+. Confirm the amount of free disk space on the root partition or the designated installation partition.
++
+[source,bash]
+----
+df -h /
+----
+
+== Subscription and Registration
+
+RHEL Lightspeed integrates with Red Hat's ecosystem, requiring proper subscription management for access to software repositories and official support.
+
+*   **Active RHEL Subscription:** Your RHEL host must have a valid and active Red Hat Enterprise Linux subscription.
+*   **System Registration:** The RHEL host needs to be registered with Red Hat Subscription Management (RHSM) and attached to the appropriate subscription. This step is critical for enabling access to Red Hat's content delivery network (CDN) for necessary package installations and updates.
+
+=== Hands-on Activity: Verifying Subscription Status
+
+Ensuring your system is correctly subscribed and registered is a common troubleshooting point.
+
+. Check your system's registration status using `subscription-manager`.
++
+[source,bash]
+----
+sudo subscription-manager status
+----
++
+*Expected Output:* Under the `Status` section, you should see `Current`. If it shows `Invalid`, `Expired`, or `Unknown`, your system is not properly subscribed.
+
+. List the subscriptions currently consumed by your system.
++
+[source,bash]
+----
+sudo subscription-manager list --consumed
+----
++
+*Troubleshooting:*
+** If your system is not registered, use `sudo subscription-manager register --username=<your_redhat_username> --password=<your_redhat_password> --auto-attach`.
+** If registered but not attached to a valid subscription, try `sudo subscription-manager attach --auto` to automatically attach the best available subscription, or specify a pool ID with `sudo subscription-manager attach --pool=<pool_id>`.
+
+== Network Requirements
+
+Reliable network connectivity is fundamental for RHEL Lightspeed to fetch components during installation, communicate with Red Hat services, and potentially integrate with other enterprise systems.
+
+*   **Internet Access:** Outbound HTTPS (port 443) access is required for communication with Red Hat's cloud services and content delivery network. Specifically, ensure connectivity to:
+    *   `console.redhat.com`: For RHEL Lightspeed services, integration with Red Hat Hybrid Cloud Console, and API access.
+    *   `cdn.redhat.com`: For RHEL package repositories, updates, and container image pulls.
+    *   `access.redhat.com`: For documentation, knowledge base articles, and support resources.
+    *   Additional Red Hat API endpoints specific to any integrated services (e.g., Red Hat Insights, Automation Hub).
+*   **DNS Resolution:** The RHEL host must be able to resolve external hostnames to IP addresses. Incorrect DNS settings can lead to installation failures or service outages.
+*   **Proxy Configuration (Optional):** If your environment uses an HTTP or HTTPS proxy server for internet access, ensure it is properly configured system-wide for `dnf` and for any container runtime environments (e.g., Podman) that RHEL Lightspeed might use.
+
+=== Hands-on Activity: Testing Network Connectivity
+
+Verify that your RHEL host can communicate with essential Red Hat services over the required ports.
+
+. Test outbound HTTPS connectivity to key Red Hat domains.
++
+[source,bash]
+----
+curl -v https://console.redhat.com
+curl -v https://cdn.redhat.com
+----
++
+*Expected Output:* A successful connection will show an HTTP 200 OK status or a redirect, indicating that the server responded. If you encounter connection errors (e.g., `Failed to connect`, `Connection refused`, `Operation timed out`), investigate your firewall rules, proxy settings, or network routing.
+
+. Verify DNS resolution capabilities.
++
+[source,bash]
+----
+dig console.redhat.com
+----
++
+*Expected Output:* Look for an `ANSWER SECTION` containing the IP address(es) for `console.redhat.com`. If no answer section appears or if you see a `SERVFAIL` status, your DNS configuration needs adjustment.
+
+== User and Permissions
+
+*   **Root or Sudo Privileges:** The installation process, initial configuration, and potentially ongoing management tasks for RHEL Lightspeed typically require elevated privileges. Ensure you have access to the `root` user or a user account with `sudo` privileges.
+
+== Software Requirements
+
+Modern Red Hat services increasingly leverage containerization and automation. RHEL Lightspeed is designed to integrate seamlessly with these technologies.
+
+*   **Container Runtime:** A container runtime environment is essential for running RHEL Lightspeed components.
+    *   `podman`: Red Hat's daemonless container engine, recommended for RHEL environments.
+    *   `docker`: While Podman is preferred, Docker is also often supported.
+    *   *Note:* Red Hat strongly recommends using `podman` on RHEL for its tighter integration, security features, and daemonless architecture.
+*   **`ansible-core` (Optional but Recommended):** While not a direct dependency for the *service itself* to run, if you plan to automate the setup, configuration, or integrate RHEL Lightspeed with Red Hat Ansible Automation Platform, you will need `ansible-core` (or a full Ansible installation) on your control host.
+
+=== Hands-on Activity: Installing and Verifying Software Dependencies
+
+Ensure the necessary software components are installed and functional on your RHEL host.
+
+. Install `podman` if it's not already present.
++
+[source,bash]
+----
+sudo dnf install -y podman
+----
+
+. Verify the `podman` installation and check its basic information.
++
+[source,bash]
+----
+podman info
+----
+
+. (Optional) Install `ansible-core` if you intend to manage or integrate RHEL Lightspeed using Ansible.
++
+[source,bash]
+----
+sudo dnf install -y ansible-core
+----
+
+. Verify the `ansible-core` installation.
++
+[source,bash]
+----
+ansible --version
+----
+
+== Best Practices and Considerations
+
+*   **Dedicated System:** For production environments, consider dedicating a RHEL host or virtual machine specifically for RHEL Lightspeed. This avoids resource contention with other applications and simplifies troubleshooting.
+*   **Backup Strategy:** Develop and implement a robust backup strategy for your RHEL Lightspeed configuration, data, and the underlying RHEL system.
+*   **Security Hardening:** Ensure your RHEL host adheres to your organization's security policies. This includes keeping SELinux in `enforcing` mode, configuring `firewalld` appropriately, and applying regular security updates.
+*   **Documentation:** Maintain comprehensive documentation of your RHEL Lightspeed deployment, including configuration choices, network settings, and any customizations. This is invaluable for maintenance, upgrades, and troubleshooting.
+
+By diligently addressing these prerequisites, you lay a solid and secure foundation for a successful RHEL Lightspeed deployment and operation.

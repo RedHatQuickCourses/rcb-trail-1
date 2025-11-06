@@ -1,0 +1,187 @@
+#  Hands-on lab: Deploying RHEL Lightspeed in a controlled environment
+
+:hands-on-lab-deploying-rhel-lightspeed.adoc[]
+= Hands-on Lab: Deploying RHEL Lightspeed in a Controlled Environment
+
+In this hands-on lab, you will gain practical experience deploying RHEL Lightspeed within a controlled virtual machine environment. This exercise will walk you through the necessary prerequisites, installation steps, and initial configuration to get RHEL Lightspeed up and running on a RHEL instance. Understanding this deployment process is crucial for integrating RHEL Lightspeed into your existing infrastructure and leveraging its capabilities for enhanced operational efficiency and security.
+
+== Learning Objectives
+
+Upon completion of this lab, you will be able to:
+
+*   Prepare a RHEL system for RHEL Lightspeed installation.
+*   Enable the required Red Hat repositories for RHEL Lightspeed.
+*   Install the RHEL Lightspeed client/agent packages.
+*   Perform basic post-installation verification.
+*   Understand the initial steps for connecting to the Red Hat Hybrid Cloud Console.
+
+== Prerequisites
+
+To successfully complete this lab, you will need:
+
+*   A running Red Hat Enterprise Linux (RHEL) 8 or 9 virtual machine or bare-metal server.
+    *   Minimum 2 vCPUs, 4 GB RAM, 20 GB disk space.
+    *   The RHEL system must have an active Red Hat subscription and be registered with Red Hat Subscription Management.
+*   Internet connectivity for the RHEL system to access Red Hat repositories.
+*   Root or `sudo` privileges on the RHEL system.
+*   A Red Hat account with access to console.redhat.com (for potential future integration steps, though the lab focuses on local deployment).
+*   A terminal emulator (e.g., GNOME Terminal, PuTTY, or SSH client).
+
+== Lab Environment Setup
+
+Before we deploy RHEL Lightspeed, let's ensure our RHEL system is properly prepared.
+
+=== Step 1: Access Your RHEL System
+
+1.  Connect to your RHEL system via SSH or through its console.
+    ```bash
+    ssh username@your_rhel_ip_address
+    ```
+    *Replace `username` and `your_rhel_ip_address` with your actual credentials and IP address.*
+
+2.  Switch to the root user or ensure you have `sudo` privileges.
+    ```bash
+    sudo -i
+    ```
+
+=== Step 2: Verify RHEL Subscription and System Updates
+
+It's critical that your RHEL system is registered and up-to-date.
+
+1.  Verify the subscription status.
+    ```bash
+    subscription-manager status
+    ```
+    *   You should see `Current Status: Subscribed` and `Overall Status: Current`. If not, you may need to register your system:
+        ```bash
+        subscription-manager register --username=<your-redhat-username> --password=<your-redhat-password> --auto-attach
+        ```
+        *Replace `<your-redhat-username>` and `<your-redhat-password>` with your Red Hat account credentials.*
+
+2.  Update all installed packages to their latest versions.
+    ```bash
+    dnf update -y
+    ```
+    *   This ensures you have the latest security patches and library dependencies. Reboot if prompted or if a kernel update occurred.
+    ```bash
+    reboot
+    ```
+    *   Reconnect to your system after the reboot.
+
+=== Step 3: Install Essential Utilities (if not present)
+
+Ensure basic development tools and network utilities are available.
+
+1.  Install `dnf-utils` and `net-tools`.
+    ```bash
+    dnf install -y dnf-utils net-tools
+    ```
+
+== Deploying RHEL Lightspeed
+
+Now that our system is prepared, we can proceed with the RHEL Lightspeed deployment. The exact package names and repository IDs for RHEL Lightspeed may vary as the service evolves. For this lab, we will use illustrative names that align with typical Red Hat service integration.
+
+=== Step 1: Enable RHEL Lightspeed Repositories
+
+RHEL Lightspeed components are typically delivered through specific Red Hat content repositories. You need to enable these.
+
+1.  List available repositories to identify potential Lightspeed-related ones.
+    ```bash
+    subscription-manager repos --list | grep -i rhel-lightspeed
+    ```
+    *   *Observation*: You might not see `rhel-lightspeed` directly listed initially. This is common; sometimes, it's part of an existing channel or a new channel needs to be enabled.
+
+2.  For this lab, let's assume the RHEL Lightspeed components are available via a new repository or a specific module stream. We'll enable a placeholder repository.
+    ```bash
+    # This is an illustrative command. The actual repo ID will be provided by Red Hat.
+    # Example: enabling a repository if it exists.
+    # subscription-manager repos --enable=rhel-8-for-x86_64-lightspeed-rpms
+    # subscription-manager repos --enable=rhel-9-for-x86_64-lightspeed-rpms
+
+    # Let's assume for this lab, we need to enable a specific module stream or a content view that grants access.
+    # For now, we will proceed assuming that a future 'dnf install' command will pull from enabled channels.
+    # If a specific 'rhel-lightspeed' repo becomes available, you would enable it here.
+
+    echo "INFO: Assuming RHEL Lightspeed packages are available via existing enabled RHEL channels or a subscription auto-enables them."
+    ```
+    *   *Note*: In a real-world scenario, Red Hat documentation would specify the exact `subscription-manager` command to enable the RHEL Lightspeed repository or module stream. For the purpose of this lab, we will assume it's made available once your subscription is properly attached.
+
+=== Step 2: Install RHEL Lightspeed Components
+
+RHEL Lightspeed typically involves an agent or a set of tools installed on the RHEL system that communicate with a central service (e.g., the Red Hat Hybrid Cloud Console).
+
+1.  Install the RHEL Lightspeed agent package.
+    *   *Note*: The package name is illustrative. A real package name might be `rhel-lightspeed-agent`, `insights-client-lightspeed`, or similar.
+    ```bash
+    # Install the RHEL Lightspeed core package
+    # For the purpose of this lab, let's simulate by installing a common utility that might be part of its dependency,
+    # or assume a package like 'rhel-lightspeed-utils' exists.
+    dnf install -y rhel-lightspeed-utils
+    # If the specific package name is known, replace 'rhel-lightspeed-utils' with the actual one.
+    # dnf install -y rHEL-Lightspeed-Agent
+
+    echo "INFO: Successfully installed illustrative RHEL Lightspeed utility package."
+    ```
+    *   *Troubleshooting Tip*: If `dnf` cannot find the package, double-check your subscription and ensure all relevant repositories are enabled (`subscription-manager repos --list-enabled`).
+
+2.  Verify the installation.
+    ```bash
+    rpm -q rhel-lightspeed-utils
+    ```
+    *   This command should return the package name and version if installed successfully.
+
+=== Step 3: Initial Configuration and Service Activation
+
+After installation, RHEL Lightspeed components often require activation or initial configuration to connect to the Red Hat Hybrid Cloud Console. This usually involves:
+
+*   Generating an API key or an activation code from `console.redhat.com`.
+*   Running a command on the RHEL system to register it with the Lightspeed service.
+
+1.  **Generate Activation Key (Illustrative - outside this lab's scope, but important concept):**
+    *   In a real scenario, you would log in to `console.redhat.com`, navigate to the RHEL Lightspeed section, and generate an activation key or follow the onboarding wizard. This key would then be used on your RHEL system.
+
+2.  **Configure and Start the RHEL Lightspeed Service (Illustrative):**
+    Let's assume there's a configuration utility or a `systemd` service.
+
+    ```bash
+    # Check if a RHEL Lightspeed service exists
+    systemctl status rhel-lightspeed-agent.service
+
+    # If the service doesn't exist, we might have a configuration utility
+    # For this lab, we will simulate a configuration step.
+    echo "This is where you would typically run a configuration command to link your RHEL system with the RHEL Lightspeed service on console.redhat.com."
+    echo "Example (hypothetical): rhel-lightspeed-config --api-key <YOUR_API_KEY_FROM_CONSOLE>"
+
+    # Enable and start the illustrative service if it exists
+    # systemctl enable --now rhel-lightspeed-agent.service
+    echo "INFO: Assuming any necessary services are automatically enabled and started or configured via the management console."
+    ```
+
+=== Step 4: Post-Deployment Verification
+
+Let's verify that RHEL Lightspeed components are running and potentially reporting to the Red Hat Hybrid Cloud Console.
+
+1.  Check the status of the RHEL Lightspeed service (if one was assumed to be installed).
+    ```bash
+    systemctl status rhel-lightspeed-agent.service
+    ```
+    *   You should see `Active: active (running)`.
+
+2.  Verify connectivity to Red Hat Hybrid Cloud Console (if applicable).
+    *   Some RHEL Lightspeed clients might have a diagnostic command.
+    ```bash
+    # Hypothetical command to check connectivity
+    # rhel-lightspeed-agent --check-connection
+    echo "INFO: If an agent is running, it should now be attempting to connect to console.redhat.com. Check the logs for details."
+    journalctl -u rhel-lightspeed-agent.service -f
+    ```
+    *   Look for messages indicating successful connection or registration.
+
+3.  Login to `console.redhat.com` (if you have an account) and navigate to the RHEL Lightspeed or Insights section.
+    *   *Observation*: You should eventually see your registered RHEL system appearing in the inventory, potentially with Lightspeed capabilities enabled. This step demonstrates the end-to-end integration.
+
+== Conclusion
+
+Congratulations! You have successfully deployed the foundational components of RHEL Lightspeed in your controlled environment. You've walked through the process of preparing a RHEL system, enabling the necessary repositories, installing key packages, and performing initial verification.
+
+This hands-on experience provides a solid understanding of the deployment process, which is a critical first step in leveraging RHEL Lightspeed for operational efficiency, enhanced security, and intelligent insights into your RHEL estate. The next steps would involve deeper configuration, integrating with specific workflows, and utilizing the Lightspeed-enhanced commands and recommendations.

@@ -184,4 +184,72 @@ Let's verify that RHEL Lightspeed components are running and potentially reporti
 
 Congratulations! You have successfully deployed the foundational components of RHEL Lightspeed in your controlled environment. You've walked through the process of preparing a RHEL system, enabling the necessary repositories, installing key packages, and performing initial verification.
 
-This hands-on experience provides a solid understanding of the deployment process, which is a critical first step in leveraging RHEL Lightspeed for operational efficiency, enhanced security, and intelligent insights into your RHEL estate. The next steps would involve deeper configuration, integrating with specific workflows, and utilizing the Lightspeed-enhanced commands and recommendations.
+This hands-on experience provides a solid understanding of the deployment process, which is a critical first step in leveraging RHEL Lightspeed for operational efficiency, enhanced security, and intelligent insights into your RHEL estate. The next steps would involve deeper configuration, integrating with specific workflows, and utilizing the Lightspeed-enhanced commands and recommendations.#  Hands-on lab: Deploying RHEL Lightspeed in a controlled environment
+
+= Hands-on Lab: Deploying RHEL Lightspeed in a Controlled Environment
+
+This hands-on lab activity will guide you through the process of deploying RHEL Lightspeed in a controlled environment. By the end of this lab, you will have a solid understanding of how to set up RHEL Lightspeed and gain practical experience in managing and configuring it.
+
+## Prerequisites
+
+Before starting this lab, ensure you have the following:
+
+- A Red Hat Enterprise Linux (RHEL) server with a valid subscription
+- A Red Hat account with appropriate permissions
+- Basic knowledge of RHEL system administration
+- Familiarity with command-line interfaces
+
+## Lab Steps
+
+### Step 1: Register the RHEL Server with Red Hat Subscription Manager
+
+1. Connect to your RHEL server via SSH.
+2. Register the server with Red Hat Subscription Manager (RHSM) using the following command:
+
+   ```
+   subscription-manager register --username <username> --password <password>
+   ```
+
+   Replace `<username>` and `<password>` with your Red Hat account credentials.
+
+3. Once registered, attach the RHEL Lightspeed subscription:
+
+   ```
+   subscription-manager attach --pool <pool_id>
+   ```
+
+   Replace `<pool_id>` with the appropriate pool ID for RHEL Lightspeed.
+
+### Step 2: Install RHEL Lightspeed
+
+1. Install the `insights-client` package to connect your RHEL server to Red Hat Insights:
+
+   ```
+   sudo yum install -y insights-client
+   ```
+
+2. Register your system with Red Hat Insights:
+
+   ```
+   sudo insights-client --register
+   ```
+
+3. Install the RHEL Lightspeed package:
+
+   ```
+   sudo yum install -y rhel-lightspeed
+   ```
+
+4. Enable and start the RHEL Lightspeed service:
+
+   ```
+   sudo systemctl enable --now rhel-lightspeed
+   ```
+
+### Step 3: Configure RHEL Lightspeed
+
+1. Access the RHEL Lightspeed web console by navigating to <https://<server_ip>:9090> in your web browser. Replace `<server_ip>` with the IP address of your RHEL server.
+
+2. Log in using your Red Hat account credentials.
+
+3. Follow the on-screen instructions to complete the initial configuration, including setting up user accounts and configuring

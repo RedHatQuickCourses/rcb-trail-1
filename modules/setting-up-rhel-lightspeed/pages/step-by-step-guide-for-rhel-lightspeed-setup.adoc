@@ -220,4 +220,70 @@ We'll use `ansible-lint` with a simple Ansible playbook to demonstrate Lightspee
    Try creating a new, empty `my_new_playbook.yml` and use your editor's Ansible extension (if it integrates with Lightspeed, like VS Code's Red Hat Ansible extension) or `ansible-lint` commands designed for content generation to request new tasks.
 
 Congratulations! You have successfully set up RHEL Lightspeed client components and configured them to interact with the Red Hat Lightspeed API. You can now leverage AI-assisted content generation and recommendations to streamline your Ansible automation development.
+```#  Step-by-step guide for RHEL Lightspeed setup
+
 ```
+== Step-by-step Guide for RHEL Lightspeed Setup
+
+This section provides a detailed, step-by-step guide for setting up RHEL Lightspeed. Before proceeding, ensure you have met the following prerequisites:
+
+- A valid Red Hat Enterprise Linux (RHEL) subscription
+- A system that meets the minimum hardware and software requirements for RHEL
+- An active Red Hat Customer Portal account with appropriate permissions
+
+### Step 1: Register the System
+
+First, register your system with Red Hat Subscription Manager (RHSM) if it's not already registered. This can be done using the following command:
+
+```bash
+subscription-manager register --username <username> --password <password>
+```
+
+Replace `<username>` and `<password>` with your Red Hat Customer Portal credentials.
+
+### Step 2: Attach the Subscription
+
+Next, attach the RHEL Lightspeed subscription to your system. Run the following command, replacing `<pool_id>` with the pool ID associated with your RHEL Lightspeed subscription:
+
+```bash
+subscription-manager attach --pool=<pool_id>
+```
+
+### Step 3: Install RHEL Lightspeed
+
+With the subscription attached, you can now install RHEL Lightspeed. Execute the following command to install the necessary packages:
+
+```bash
+yum install redhat-insights-client
+```
+
+### Step 4: Configure RHEL Lightspeed
+
+After the installation, configure RHEL Lightspeed by editing the main configuration file:
+
+```bash
+vi /etc/insights-client/insights-client.conf
+```
+
+Ensure the following lines are present and correctly configured:
+
+```ini
+[insights]
+org_id = <your_org_id>
+prefix = <your_prefix>
+```
+
+Replace `<your_org_id>` and `<your_prefix>` with your organization's ID and prefix, respectively. You can find these values on the Red Hat Customer Portal.
+
+### Step 5: Start and Enable the Service
+
+Start and enable the RHEL Lightspeed service with the following commands:
+
+```bash
+systemctl start insights-client
+systemctl enable insights-client
+```
+
+### Step 6: Verify the Installation
+
+Finally, verify that RHEL Lightspeed is correctly installed and configured by checking the status of the

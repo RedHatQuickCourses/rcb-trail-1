@@ -374,4 +374,50 @@ This activity provides a hands-on experience in diagnosing a common connectivity
     *   Check `sudo journalctl -u rhel-lightspeed` for successful messages.
     *   **Expected Outcome:** All verification steps should now succeed, and error messages should no longer appear in the logs.
 
-By completing these verification and troubleshooting activities, you gain practical experience in ensuring your RHEL Lightspeed deployment is healthy and in resolving common operational issues.
+By completing these verification and troubleshooting activities, you gain practical experience in ensuring your RHEL Lightspeed deployment is healthy and in resolving common operational issues.#  Post-deployment verification and troubleshooting
+
+```
+= Post-deployment verification and troubleshooting for RHEL Lightspeed
+
+== Overview
+
+After deploying RHEL Lightspeed, it's crucial to verify its successful implementation and be prepared to troubleshoot any issues that may arise. This section will guide you through post-deployment verification steps and common troubleshooting techniques.
+
+== Post-deployment verification
+
+1. **Check RHEL Lightspeed services**
+   - Ensure that all RHEL Lightspeed services are running. Use the following command to check the status:
+
+   ```
+   sudo systemctl status redhat-insights-remediation
+   sudo systemctl status redhat-insights-client
+   ```
+
+   Both services should be active (‘active’ in the output).
+
+2. **Validate connection to Red Hat Insights**
+   - Confirm that your RHEL Lightspeed environment is connected to Red Hat Insights. You can verify this by logging into the [Red Hat Insights](https://console.redhat.com/insights/dashboard) portal and checking if your systems are listed under 'Systems'.
+
+3. **Review system compliance**
+   - Navigate to the 'Compliance' section in the Red Hat Insights dashboard to review the compliance status of your systems. Ensure that systems are compliant with relevant policies and recommendations.
+
+4. **Test remediation capabilities**
+   - Create a simple remediation playbook to test RHEL Lightspeed's automated remediation feature. For example, you can create a playbook to ensure a specific security setting is applied across your systems.
+
+== Troubleshooting
+
+1. **RHEL Lightspeed services not running**
+   - If the RHEL Lightspeed services are not running, check the logs for any errors:
+
+   ```
+   journalctl -u redhat-insights-remediation
+   journalctl -u redhat-insights-client
+   ```
+
+   Address any reported issues based on the log messages.
+
+2. **Connection issues to Red Hat Insights**
+   - Verify that your firewall rules allow outbound connections to Red Hat Insights. Ensure that your systems can reach [api.access.redhat.com](https://api.access.redhat.com) on ports 443 and 80.
+
+3. **Compliance issues**
+   - If systems are not compliant, review the specific recommendations in the Red Hat Insights dashboard. Address non-compliant settings by either manually updating the systems or creating remediation playbooks in RHEL L

@@ -263,4 +263,76 @@ You are tasked with integrating a newly provisioned RHEL server into your organi
 *   Your RHEL system successfully registered with Red Hat Subscription Management.
 *   The `insights-client` is installed, registered, and running on your RHEL system.
 *   Your RHEL system's hostname appears in the Red Hat Hybrid Cloud Console under *Insights* -> *RHEL* -> *Inventory*.
-*   You have navigated to the *Advisor* service within the console and understand where Lightspeed-powered recommendations would be presented.
+*   You have navigated to the *Advisor* service within the console and understand where Lightspeed-powered recommendations would be presented.#  Walkthrough of a typical RHEL Lightspeed deployment
+
+```
+== Walkthrough of a Typical RHEL Lightspeed Deployment
+
+In this section, we will walk through a typical deployment of RHEL Lightspeed. This hands-on lab activity will guide you through the process of setting up RHEL Lightspeed in a controlled environment.
+
+### Prerequisites
+
+Before you begin the deployment, ensure you have the following:
+
+- A Red Hat Enterprise Linux (RHEL) server with a valid subscription.
+- A Red Hat account with appropriate permissions to access the RHEL Lightspeed service.
+- Basic understanding of RHEL system administration.
+
+### Step-by-Step Deployment Guide
+
+#### Step 1: Register the RHEL System
+
+First, register your RHEL system to the Red Hat Subscription Manager (RHSM) if it isn't already registered. This can be done using the following command:
+
+```bash
+subscription-manager register --username <username> --password <password>
+```
+
+Replace `<username>` and `<password>` with your Red Hat account credentials.
+
+#### Step 2: Attach the RHEL Lightspeed Subscription
+
+Next, attach the RHEL Lightspeed subscription to your system:
+
+```bash
+subscription-manager attach --auto
+```
+
+#### Step 3: Install RHEL Lightspeed
+
+Now, install the RHEL Lightspeed package using the following command:
+
+```bash
+dnf install -y redhat-insights-client
+```
+
+#### Step 4: Configure RHEL Lightspeed
+
+After installation, configure RHEL Lightspeed by editing the configuration file:
+
+```bash
+vi /etc/insights-client/insights-client.conf
+```
+
+Ensure the following lines are present and uncommented:
+
+```
+[insights]
+organization=<your-organization-id>
+prefix=<your-prefix>
+```
+
+Replace `<your-organization-id>` and `<your-prefix>` with your actual organization ID and prefix, which you can find in the Red Hat Customer Portal.
+
+#### Step 5: Start and Enable the RHEL Lightspeed Service
+
+Start and enable the RHEL Lightspeed service with the following commands:
+
+```bash
+systemctl start insights-client
+systemctl enable insights-client
+```
+
+#### Step 6: Verify the Installation
+
+Finally, verify that RHEL Lightspeed is installed and

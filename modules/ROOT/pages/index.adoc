@@ -21,6 +21,14 @@ Duration: FIXME hours
 
 *  Sample Deployment
 
+*  Business Use Cases for RHEL Lightspeed
+
+*  Adoption for Existing RHEL Customers/Users
+
+*  Setting Up RHEL Lightspeed
+
+*  Sample Deployment
+
 
 
 == Prerequisites

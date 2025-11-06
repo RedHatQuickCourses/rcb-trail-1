@@ -1,3 +1,11 @@
 #  Sample Deployment
 
-A Sample Deployment provides a practical, guided experience for understanding RHEL Lightspeed implementation. It includes a walkthrough of a typical deployment scenario, illustrating the end-to-end process. Learners engage in a hands-on lab to deploy RHEL Lightspeed within a controlled environment. This section also covers essential post-deployment verification steps and common troubleshooting techniques. This practical application solidifies understanding of the setup and operational aspects.
+A Sample Deployment provides a practical, guided experience for understanding RHEL Lightspeed implementation. It includes a walkthrough of a typical deployment scenario, illustrating the end-to-end process. Learners engage in a hands-on lab to deploy RHEL Lightspeed within a controlled environment. This section also covers essential post-deployment verification steps and common troubleshooting techniques. This practical application solidifies understanding of the setup and operational aspects.#  Sample Deployment
+
+- **Sample Deployment** provides a practical understanding of RHEL Lightspeed through a walkthrough of a typical deployment scenario.
+    - It includes a hands-on lab for deploying RHEL Lightspeed in a controlled environment, allowing learners to apply their knowledge in a risk-free setting.
+    - The process covers all essential steps, from initial setup to configuration, ensuring a comprehensive grasp of the deployment process.
+    - Post-deployment verification and troubleshooting techniques are also covered, equipping learners with the skills to maintain and optimize their RHEL Lightspeed environment.
+    - This section is designed to bridge the gap between theoretical knowledge and practical application, providing learners with a realistic view of RHEL Lightspeed implementation.
+    - It serves as a valuable resource for understanding the practical implications of RHEL Lightspeed adoption, enhancing the overall learning experience.
+    - By the end of this section, learners should be able to confidently deploy RHEL Lightspeed in their own environments, having gained hands-on experience and practical insights.

@@ -1,4 +1,13 @@
 #  Setting Up RHEL Lightspeed
 
 *Setting Up RHEL Lightspeed*
-This section guides users through the process of getting RHEL Lightspeed operational. It covers essential prerequisites required before installation, ensuring a smooth deployment. A comprehensive, step-by-step guide walks through the installation process. Additionally, it details various configuration options and outlines best practices to optimize performance and security for your RHEL Lightspeed environment.
+This section guides users through the process of getting RHEL Lightspeed operational. It covers essential prerequisites required before installation, ensuring a smooth deployment. A comprehensive, step-by-step guide walks through the installation process. Additionally, it details various configuration options and outlines best practices to optimize performance and security for your RHEL Lightspeed environment.#  Setting Up RHEL Lightspeed
+
+- **Setting Up RHEL Lightspeed**
+
+    - **Prerequisites**: Ensure the system meets the minimum hardware and software requirements for RHEL Lightspeed installation.
+    - **Installation Guide**: Follow the step-by-step instructions to set up RHEL Lightspeed, including registering the system and obtaining the necessary subscriptions.
+    - **Configuration Options**: Understand the various configuration settings available for RHEL Lightspeed, such as policy management, system grouping, and automation settings.
+    - **Best Practices**: Learn about recommended practices for configuring RHEL Lightspeed to optimize performance, security, and manageability.
+    - **Verification**: Post-installation, verify the successful deployment of RHEL Lightspeed and ensure all components are functioning correctly.
+    - **Troubleshooting**: Familiarize with common issues and their resolutions during and after the RHEL Lightspeed setup process.

@@ -177,4 +177,42 @@ ansible --version
 *   **Security Hardening:** Ensure your RHEL host adheres to your organization's security policies. This includes keeping SELinux in `enforcing` mode, configuring `firewalld` appropriately, and applying regular security updates.
 *   **Documentation:** Maintain comprehensive documentation of your RHEL Lightspeed deployment, including configuration choices, network settings, and any customizations. This is invaluable for maintenance, upgrades, and troubleshooting.
 
-By diligently addressing these prerequisites, you lay a solid and secure foundation for a successful RHEL Lightspeed deployment and operation.
+By diligently addressing these prerequisites, you lay a solid and secure foundation for a successful RHEL Lightspeed deployment and operation.#  Prerequisites for RHEL Lightspeed installation
+
+```
+== Prerequisites for RHEL Lightspeed Installation
+
+Before diving into the installation process of RHEL Lightspeed, it's crucial to ensure that your environment meets the necessary prerequisites. This section outlines the essential requirements and preparations to ensure a smooth installation.
+
+=== System Requirements
+
+RHEL Lightspeed requires specific hardware and software configurations. Here are the minimum system requirements:
+
+- **Operating System**: Red Hat Enterprise Linux (RHEL) 8 or later
+- **Hardware**: A system that meets the minimum requirements for RHEL 8, including CPU, RAM, and storage
+- **Network**: A stable network connection for accessing Red Hat's subscription management service and updates
+
+=== Subscription and Access
+
+To install and use RHEL Lightspeed, you need a valid Red Hat subscription. This includes:
+
+- **Red Hat Enterprise Linux Subscription**: Ensure that your systems are registered and managed through the Red Hat Subscription Manager (RHSM)
+- **RHEL Lightspeed Access**: Obtain access to RHEL Lightspeed through your Red Hat account or by purchasing the appropriate subscription
+
+=== User Permissions
+
+The user installing RHEL Lightspeed must have the necessary permissions. This typically involves:
+
+- **Root or Sudo Access**: The installing user must have root or sudo privileges to install packages and configure system settings
+- **Red Hat Subscription Manager (RHSM) Access**: The user should have the necessary credentials to register systems with RHSM
+
+=== System Preparation
+
+Before installation, perform the following preparatory steps:
+
+1. **Update Your System**: Ensure your RHEL system is up-to-date by running `sudo yum update` or `sudo dnf update`.
+2. **Register Your System with RHSM**: Register your system with RHSM using the appropriate command for your version of RHEL. For example, `sudo subscription-manager register --username <username> --password <password>`.
+3. **Attach Your System to a Subscription Pool**: Attach your system to a subscription pool that includes RHEL Lightspeed using `sudo subscription-manager attach --pool <pool_id>`.
+4. **Disable Existing Repositories**: Temporarily disable any third-party repositories to avoid conflicts during the installation. You can re-enable them after the installation is complete.
+
+By meeting these prerequisites, you'll be well-prepared to proceed with

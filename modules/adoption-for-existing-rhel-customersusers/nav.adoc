@@ -2,3 +2,7 @@
 ** xref:evaluating-the-transition-from-traditional-rhel-to-rhel-lightspeed.adoc[]
 ** xref:assessing-the-impact-on-existing-workflows-and-systems.adoc[]
 ** xref:strategies-for-smooth-integration-and-migration.adoc[]
+* xref:adoption-for-existing-rhel-customersusers.adoc[]
+** xref:evaluating-the-transition-from-traditional-rhel-to-rhel-lightspeed.adoc[]
+** xref:assessing-the-impact-on-existing-workflows-and-systems.adoc[]
+** xref:strategies-for-smooth-integration-and-migration.adoc[]

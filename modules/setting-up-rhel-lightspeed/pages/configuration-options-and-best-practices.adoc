@@ -154,4 +154,39 @@ This activity will guide you through identifying and understanding key RHEL Ligh
 .. From the main navigation menu, under *Red Hat Enterprise Linux*, click on *System groups*.
 .. *Consider*: Lightspeed often operates on groups of systems. By effectively organizing your RHEL systems into groups (e.g., by environment, application, or criticality), you can better manage and apply Lightspeed's insights and remediations to relevant subsets of your infrastructure.
 
-This hands-on activity illustrates that RHEL Lightspeed's "configuration" is less about a single settings panel and more about the holistic setup and management of your RHEL systems within the Red Hat Hybrid Cloud Console, and how you integrate its AI-driven output into your existing operational workflows and automation tools.
+This hands-on activity illustrates that RHEL Lightspeed's "configuration" is less about a single settings panel and more about the holistic setup and management of your RHEL systems within the Red Hat Hybrid Cloud Console, and how you integrate its AI-driven output into your existing operational workflows and automation tools.#  Configuration options and best practices
+
+```
+= Configuration Options and Best Practices for RHEL Lightspeed
+
+== Introduction
+
+This section provides an in-depth look at the configuration options available for RHEL Lightspeed and the best practices to ensure optimal performance and security.
+
+== Configuration Options
+
+RHEL Lightspeed offers a variety of configuration options tailored to meet the diverse needs of businesses. Here are some key configuration options:
+
+* **Policy-based Management**: RHEL Lightspeed allows administrators to define policies that automatically enforce security and compliance settings across the infrastructure. This includes configuring firewall rules, SELinux settings, and file integrity.
+
+* **Content Management**: Administrators can manage and distribute content, such as errata and container images, across their RHEL systems. This ensures that all systems are up-to-date and secure.
+
+* **System Provisioning**: RHEL Lightspeed supports system provisioning, enabling the automated creation of new RHEL systems with predefined configurations. This ensures consistency and reduces the potential for human error.
+
+* **Integration with Existing Tools**: RHEL Lightspeed can be integrated with existing tools and workflows, such as Ansible, Puppet, and Satellite. This allows businesses to leverage their existing infrastructure and processes.
+
+== Best Practices
+
+To maximize the benefits of RHEL Lightspeed, consider the following best practices:
+
+* **Centralize Management**: Centralize the management of your RHEL systems using RHEL Lightspeed. This simplifies administration and ensures consistent security and compliance settings.
+
+* **Automate Where Possible**: Automate tasks such as system provisioning, policy enforcement, and content distribution. This reduces the potential for human error and frees up time for more strategic tasks.
+
+* **Regularly Review and Update Policies**: Regularly review and update your policies to ensure they remain effective and relevant. This includes keeping up-to-date with the latest security threats and compliance requirements.
+
+* **Monitor and Audit**: Regularly monitor and audit your systems to ensure they remain secure and compliant. RHEL Lightspeed provides robust logging and reporting capabilities to assist with this.
+
+* **Plan for Migration**: If you're transitioning from traditional RHEL to RHEL Lightspeed, plan the migration carefully. This includes assessing the impact on existing workflows and systems, and developing a strategy for smooth integration.
+
+== Hands-

@@ -68,10 +68,40 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/business-use-cases-for-rhel-lightspeed.html">Business Use Cases for RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/understanding-the-benefits-of-rhel-lightspeed-for-businesses.html">Understanding the benefits of RHEL Lightspeed for businesses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/exploring-how-rhel-lightspeed-enhances-security-and-compliance.html">Exploring how RHEL Lightspeed enhances security and compliance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/identifying-key-business-scenarios-for-rhel-lightspeed-adoption.html">Identifying key business scenarios for RHEL Lightspeed adoption</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/evaluating-the-transition-from-traditional-rhel-to-rhel-lightspeed.html">Evaluating the transition from traditional RHEL to RHEL Lightspeed</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/assessing-the-impact-on-existing-workflows-and-systems.html">Assessing the impact on existing workflows and systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/strategies-for-smooth-integration-and-migration.html">Strategies for smooth integration and migration</a>
+  </li>
+</ul>
+  </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
@@ -106,10 +136,40 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/prerequisites-for-rhel-lightspeed-installation.html">Prerequisites for RHEL Lightspeed installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/step-by-step-guide-for-rhel-lightspeed-setup.html">Step-by-step guide for RHEL Lightspeed setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/configuration-options-and-best-practices.html">Configuration options and best practices</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="sample-deployment.html">Sample Deployment</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="walkthrough-of-a-typical-rhel-lightspeed-deployment.html">Walkthrough of a typical RHEL Lightspeed deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="post-deployment-verification-and-troubleshooting.html">Post-deployment verification and troubleshooting</a>
+  </li>
+</ul>
+  </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="sample-deployment.html">Sample Deployment</a>
@@ -705,9 +765,100 @@ While a new system might not immediately show Lightspeed-specific recommendation
 <p>Your RHEL system&#8217;s hostname appears in the Red Hat Hybrid Cloud Console under <strong>Insights</strong> &#8594; <strong>RHEL</strong> &#8594; <strong>Inventory</strong>.</p>
 </li>
 <li>
-<p>You have navigated to the <strong>Advisor</strong> service within the console and understand where Lightspeed-powered recommendations would be presented.</p>
+<p>You have navigated to the <strong>Advisor</strong> service within the console and understand where Lightspeed-powered recommendations would be presented.#  Walkthrough of a typical RHEL Lightspeed deployment</p>
 </li>
 </ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">== Walkthrough of a Typical RHEL Lightspeed Deployment
+
+In this section, we will walk through a typical deployment of RHEL Lightspeed. This hands-on lab activity will guide you through the process of setting up RHEL Lightspeed in a controlled environment.
+
+### Prerequisites
+
+Before you begin the deployment, ensure you have the following:
+
+- A Red Hat Enterprise Linux (RHEL) server with a valid subscription.
+- A Red Hat account with appropriate permissions to access the RHEL Lightspeed service.
+- Basic understanding of RHEL system administration.
+
+### Step-by-Step Deployment Guide
+
+#### Step 1: Register the RHEL System
+
+First, register your RHEL system to the Red Hat Subscription Manager (RHSM) if it isn't already registered. This can be done using the following command:
+
+```bash
+subscription-manager register --username &lt;username&gt; --password &lt;password&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <code>&lt;username&gt;</code> and <code>&lt;password&gt;</code> with your Red Hat account credentials.</p>
+</div>
+<div class="sect3">
+<h4 id="_step_2_attach_the_rhel_lightspeed_subscription"><a class="anchor" href="#_step_2_attach_the_rhel_lightspeed_subscription"></a>Step 2: Attach the RHEL Lightspeed Subscription</h4>
+<div class="paragraph">
+<p>Next, attach the RHEL Lightspeed subscription to your system:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">subscription-manager attach --auto</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_3_install_rhel_lightspeed"><a class="anchor" href="#_step_3_install_rhel_lightspeed"></a>Step 3: Install RHEL Lightspeed</h4>
+<div class="paragraph">
+<p>Now, install the RHEL Lightspeed package using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">dnf install -y redhat-insights-client</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_4_configure_rhel_lightspeed"><a class="anchor" href="#_step_4_configure_rhel_lightspeed"></a>Step 4: Configure RHEL Lightspeed</h4>
+<div class="paragraph">
+<p>After installation, configure RHEL Lightspeed by editing the configuration file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">vi /etc/insights-client/insights-client.conf</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ensure the following lines are present and uncommented:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[insights]
+organization=&lt;your-organization-id&gt;
+prefix=&lt;your-prefix&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <code>&lt;your-organization-id&gt;</code> and <code>&lt;your-prefix&gt;</code> with your actual organization ID and prefix, which you can find in the Red Hat Customer Portal.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_5_start_and_enable_the_rhel_lightspeed_service"><a class="anchor" href="#_step_5_start_and_enable_the_rhel_lightspeed_service"></a>Step 5: Start and Enable the RHEL Lightspeed Service</h4>
+<div class="paragraph">
+<p>Start and enable the RHEL Lightspeed service with the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">systemctl start insights-client
+systemctl enable insights-client</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_step_6_verify_the_installation"><a class="anchor" href="#_step_6_verify_the_installation"></a>Step 6: Verify the Installation</h4>
+<div class="paragraph">
+<p>Finally, verify that RHEL Lightspeed is installed and</p>
+</div>
 </div>
 </div>
 </div>

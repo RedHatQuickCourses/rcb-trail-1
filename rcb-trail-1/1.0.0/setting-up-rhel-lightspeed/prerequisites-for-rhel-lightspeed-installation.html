@@ -68,10 +68,40 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/business-use-cases-for-rhel-lightspeed.html">Business Use Cases for RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/understanding-the-benefits-of-rhel-lightspeed-for-businesses.html">Understanding the benefits of RHEL Lightspeed for businesses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/exploring-how-rhel-lightspeed-enhances-security-and-compliance.html">Exploring how RHEL Lightspeed enhances security and compliance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/identifying-key-business-scenarios-for-rhel-lightspeed-adoption.html">Identifying key business scenarios for RHEL Lightspeed adoption</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/evaluating-the-transition-from-traditional-rhel-to-rhel-lightspeed.html">Evaluating the transition from traditional RHEL to RHEL Lightspeed</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/assessing-the-impact-on-existing-workflows-and-systems.html">Assessing the impact on existing workflows and systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/strategies-for-smooth-integration-and-migration.html">Strategies for smooth integration and migration</a>
+  </li>
+</ul>
+  </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
@@ -106,10 +136,40 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="prerequisites-for-rhel-lightspeed-installation.html">Prerequisites for RHEL Lightspeed installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="step-by-step-guide-for-rhel-lightspeed-setup.html">Step-by-step guide for RHEL Lightspeed setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration-options-and-best-practices.html">Configuration options and best practices</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../sample-deployment/sample-deployment.html">Sample Deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sample-deployment/walkthrough-of-a-typical-rhel-lightspeed-deployment.html">Walkthrough of a typical RHEL Lightspeed deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sample-deployment/hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../sample-deployment/post-deployment-verification-and-troubleshooting.html">Post-deployment verification and troubleshooting</a>
+  </li>
+</ul>
+  </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../sample-deployment/sample-deployment.html">Sample Deployment</a>
@@ -491,7 +551,47 @@ curl -v https://cdn.redhat.com</code></pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>By diligently addressing these prerequisites, you lay a solid and secure foundation for a successful RHEL Lightspeed deployment and operation.</p>
+<p>By diligently addressing these prerequisites, you lay a solid and secure foundation for a successful RHEL Lightspeed deployment and operation.#  Prerequisites for RHEL Lightspeed installation</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">== Prerequisites for RHEL Lightspeed Installation
+
+Before diving into the installation process of RHEL Lightspeed, it's crucial to ensure that your environment meets the necessary prerequisites. This section outlines the essential requirements and preparations to ensure a smooth installation.
+
+=== System Requirements
+
+RHEL Lightspeed requires specific hardware and software configurations. Here are the minimum system requirements:
+
+- **Operating System**: Red Hat Enterprise Linux (RHEL) 8 or later
+- **Hardware**: A system that meets the minimum requirements for RHEL 8, including CPU, RAM, and storage
+- **Network**: A stable network connection for accessing Red Hat's subscription management service and updates
+
+=== Subscription and Access
+
+To install and use RHEL Lightspeed, you need a valid Red Hat subscription. This includes:
+
+- **Red Hat Enterprise Linux Subscription**: Ensure that your systems are registered and managed through the Red Hat Subscription Manager (RHSM)
+- **RHEL Lightspeed Access**: Obtain access to RHEL Lightspeed through your Red Hat account or by purchasing the appropriate subscription
+
+=== User Permissions
+
+The user installing RHEL Lightspeed must have the necessary permissions. This typically involves:
+
+- **Root or Sudo Access**: The installing user must have root or sudo privileges to install packages and configure system settings
+- **Red Hat Subscription Manager (RHSM) Access**: The user should have the necessary credentials to register systems with RHSM
+
+=== System Preparation
+
+Before installation, perform the following preparatory steps:
+
+1. **Update Your System**: Ensure your RHEL system is up-to-date by running `sudo yum update` or `sudo dnf update`.
+2. **Register Your System with RHSM**: Register your system with RHSM using the appropriate command for your version of RHEL. For example, `sudo subscription-manager register --username &lt;username&gt; --password &lt;password&gt;`.
+3. **Attach Your System to a Subscription Pool**: Attach your system to a subscription pool that includes RHEL Lightspeed using `sudo subscription-manager attach --pool &lt;pool_id&gt;`.
+4. **Disable Existing Repositories**: Temporarily disable any third-party repositories to avoid conflicts during the installation. You can re-enable them after the installation is complete.
+
+By meeting these prerequisites, you'll be well-prepared to proceed with</code></pre>
+</div>
 </div>
 </div>
 </div>

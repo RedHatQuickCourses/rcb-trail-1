@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Post-deployment verification and troubleshooting :: RHEL Lightspeed Course Outline</title>
     <link rel="prev" href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">
-    <link rel="next" href="../appendix/appendix.html">
+    <link rel="next" href="sample-deployment.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -68,10 +68,40 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/business-use-cases-for-rhel-lightspeed.html">Business Use Cases for RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/understanding-the-benefits-of-rhel-lightspeed-for-businesses.html">Understanding the benefits of RHEL Lightspeed for businesses</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/exploring-how-rhel-lightspeed-enhances-security-and-compliance.html">Exploring how RHEL Lightspeed enhances security and compliance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-use-cases-for-rhel-lightspeed/identifying-key-business-scenarios-for-rhel-lightspeed-adoption.html">Identifying key business scenarios for RHEL Lightspeed adoption</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/evaluating-the-transition-from-traditional-rhel-to-rhel-lightspeed.html">Evaluating the transition from traditional RHEL to RHEL Lightspeed</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/assessing-the-impact-on-existing-workflows-and-systems.html">Assessing the impact on existing workflows and systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/strategies-for-smooth-integration-and-migration.html">Strategies for smooth integration and migration</a>
+  </li>
+</ul>
+  </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../adoption-for-existing-rhel-customersusers/adoption-for-existing-rhel-customersusers.html">Adoption for Existing RHEL Customers/Users</a>
@@ -106,10 +136,40 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/setting-up-rhel-lightspeed.html">Setting Up RHEL Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/prerequisites-for-rhel-lightspeed-installation.html">Prerequisites for RHEL Lightspeed installation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/step-by-step-guide-for-rhel-lightspeed-setup.html">Step-by-step guide for RHEL Lightspeed setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../setting-up-rhel-lightspeed/configuration-options-and-best-practices.html">Configuration options and best practices</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="sample-deployment.html">Sample Deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="walkthrough-of-a-typical-rhel-lightspeed-deployment.html">Walkthrough of a typical RHEL Lightspeed deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="post-deployment-verification-and-troubleshooting.html">Post-deployment verification and troubleshooting</a>
+  </li>
+</ul>
+  </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="sample-deployment.html">Sample Deployment</a>
@@ -814,14 +874,62 @@ sudo iptables -D OUTPUT -p tcp --dport 443 -j DROP
 </ol>
 </div>
 <div class="paragraph">
-<p>By completing these verification and troubleshooting activities, you gain practical experience in ensuring your RHEL Lightspeed deployment is healthy and in resolving common operational issues.</p>
+<p>By completing these verification and troubleshooting activities, you gain practical experience in ensuring your RHEL Lightspeed deployment is healthy and in resolving common operational issues.#  Post-deployment verification and troubleshooting</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">= Post-deployment verification and troubleshooting for RHEL Lightspeed
+
+== Overview
+
+After deploying RHEL Lightspeed, it's crucial to verify its successful implementation and be prepared to troubleshoot any issues that may arise. This section will guide you through post-deployment verification steps and common troubleshooting techniques.
+
+== Post-deployment verification
+
+1. **Check RHEL Lightspeed services**
+   - Ensure that all RHEL Lightspeed services are running. Use the following command to check the status:
+
+   ```
+   sudo systemctl status redhat-insights-remediation
+   sudo systemctl status redhat-insights-client
+   ```
+
+   Both services should be active (‘active’ in the output).
+
+2. **Validate connection to Red Hat Insights**
+   - Confirm that your RHEL Lightspeed environment is connected to Red Hat Insights. You can verify this by logging into the [Red Hat Insights](https://console.redhat.com/insights/dashboard) portal and checking if your systems are listed under 'Systems'.
+
+3. **Review system compliance**
+   - Navigate to the 'Compliance' section in the Red Hat Insights dashboard to review the compliance status of your systems. Ensure that systems are compliant with relevant policies and recommendations.
+
+4. **Test remediation capabilities**
+   - Create a simple remediation playbook to test RHEL Lightspeed's automated remediation feature. For example, you can create a playbook to ensure a specific security setting is applied across your systems.
+
+== Troubleshooting
+
+1. **RHEL Lightspeed services not running**
+   - If the RHEL Lightspeed services are not running, check the logs for any errors:
+
+   ```
+   journalctl -u redhat-insights-remediation
+   journalctl -u redhat-insights-client
+   ```
+
+   Address any reported issues based on the log messages.
+
+2. **Connection issues to Red Hat Insights**
+   - Verify that your firewall rules allow outbound connections to Red Hat Insights. Ensure that your systems can reach [api.access.redhat.com](https://api.access.redhat.com) on ports 443 and 80.
+
+3. **Compliance issues**
+   - If systems are not compliant, review the specific recommendations in the Red Hat Insights dashboard. Address non-compliant settings by either manually updating the systems or creating remediation playbooks in RHEL L</code></pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="hands-on-lab-deploying-rhel-lightspeed-in-a-controlled-environment.html">Hands-on lab: Deploying RHEL Lightspeed in a controlled environment</a></span>
-  <span class="next"><a href="../appendix/appendix.html">Appendix</a></span>
+  <span class="next"><a href="sample-deployment.html">Sample Deployment</a></span>
 </nav>
 </article>
   </div>
